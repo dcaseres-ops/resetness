@@ -1,0 +1,3481 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consultoría operativa y estratégica para PyMEs de retail y consumo masivo — ResetNess</title>
+<meta name="description" content="Ayudamos a PyMEs que crecieron más rápido que su estructura. Ordenamos cultura, organización y gobierno para devolver rentabilidad, control y capacidad de crecer.">
+<meta name="keywords" content="consultoría PyMEs, consultoría operativa, consultoría retail, consumo masivo, transformación organizacional, diagnóstico operativo, rentabilidad PyME, Córdoba, Argentina">
+<meta property="og:title" content="Consultoría operativa y estratégica para PyMEs de retail y consumo masivo — ResetNess">
+<meta property="og:description" content="Primero ordenamos la casa. Después, todo lo demás fluye. Cultura, organización y gobierno: la base donde se sostienen la rentabilidad y el crecimiento.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_AR">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --azul: #1A1A8C;
+    --azul-deep: #0D0D5C;
+    --naranja: #C2410C;
+    --blanco: #FFFFFF;
+    --gris-fondo: #F6F5F2;
+    --gris-texto: #2C2C2C;
+    --gris-suave: #888;
+    --radius: 12px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Onest', sans-serif;
+    background: var(--blanco);
+    color: var(--gris-texto);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(13,27,46,0.98);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 5%;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+  .nav-logo-icon { height: 54px; width: 54px; display: block; flex-shrink: 0; }
+  /* SVG wordmark: mantiene identidad de marca */
+  .nav-logo-svg { height: 50px; width: auto; display: block; }
+  @media(max-width: 600px) {
+    .nav-logo-icon { height: 42px; width: 42px; }
+    .nav-logo-svg { height: 38px; }
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+    align-items: center;
+    justify-content: flex-end;
+    row-gap: 8px;
+  }
+  nav ul li a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 13px; font-weight: 500; transition: color .2s; }
+  nav ul li a:hover { color: #fff; }
+  .nav-cta {
+    background: var(--naranja); color: #fff !important; font-weight: 700 !important;
+    padding: 9px 20px; border-radius: 6px; font-size: 13px !important;
+    transition: opacity .2s !important;
+  }
+  .nav-cta:hover { opacity: 0.88; }
+
+  /* ── Tooltip del CTA Autodiagnóstico (desktop) ── */
+  .nav-item-tip { position: relative; }
+  .nav-tip {
+    position: absolute;
+    top: calc(100% + 14px);
+    right: 0;
+    width: 260px;
+    max-width: 90vw;
+    background: #fff;
+    color: var(--azul);
+    border-radius: 10px;
+    padding: 14px 16px 12px;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.28), 0 0 0 1px rgba(0,0,0,0.06);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px);
+    transition: opacity .2s ease, transform .2s ease, visibility .2s ease;
+    pointer-events: none;
+    z-index: 120;
+    text-align: left;
+  }
+  .nav-tip::before {
+    content: "";
+    position: absolute;
+    top: -7px;
+    right: 28px;
+    width: 14px;
+    height: 14px;
+    background: #fff;
+    transform: rotate(45deg);
+    box-shadow: -2px -2px 4px rgba(0,0,0,0.05);
+  }
+  .nav-item-tip:hover .nav-tip,
+  .nav-item-tip:focus-within .nav-tip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .nav-tip-h {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 14.5px;
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--azul);
+    margin-bottom: 8px;
+  }
+  .nav-tip-p {
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: var(--gris-texto);
+    margin: 0;
+  }
+  .nav-tip-p em {
+    color: var(--naranja);
+    font-style: normal;
+    font-weight: 700;
+  }
+  .nav-tip-cta {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--naranja);
+    letter-spacing: 0.3px;
+  }
+  /* En mobile (hamburguesa) ocultar el tooltip — el usuario navega directo al tap */
+  @media (max-width: 1024px) {
+    .nav-tip { display: none !important; }
+  }
+
+  /* ── Dropdown "Soluciones" (desktop) ── */
+  .nav-dropdown { position: relative; }
+  .nav-dropdown-trigger {
+    background: transparent;
+    border: none;
+    color: rgba(255,255,255,0.75);
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 0;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: color .2s;
+  }
+  .nav-dropdown-trigger:hover,
+  .nav-dropdown:hover .nav-dropdown-trigger,
+  .nav-dropdown:focus-within .nav-dropdown-trigger {
+    color: #fff;
+  }
+  .nav-dd-caret {
+    font-size: 10px;
+    transition: transform .2s;
+    color: rgba(255,255,255,0.55);
+  }
+  .nav-dropdown:hover .nav-dd-caret,
+  .nav-dropdown:focus-within .nav-dd-caret {
+    transform: rotate(180deg);
+    color: #fff;
+  }
+  .nav-dropdown-menu {
+    list-style: none;
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 50%;
+    transform: translateX(-50%) translateY(-6px);
+    background: rgba(13,27,46,0.99);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    padding: 8px 0;
+    min-width: 200px;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.35);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .18s ease, transform .18s ease;
+    z-index: 110;
+  }
+  .nav-dropdown:hover .nav-dropdown-menu,
+  .nav-dropdown:focus-within .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+  }
+  .nav-dropdown-menu li { width: 100%; }
+  .nav-dropdown-menu li a {
+    display: block;
+    padding: 10px 18px;
+    color: rgba(255,255,255,0.8);
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background .15s, color .15s;
+  }
+  .nav-dropdown-menu li a:hover {
+    background: rgba(255,255,255,0.06);
+    color: #fff;
+  }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    background: var(--azul);
+    display: flex; align-items: center;
+    padding: 120px 5% 80px;
+    position: relative; overflow: hidden;
+  }
+  .hero-bg-r {
+    position: absolute; right: -40px; bottom: -60px;
+    font-size: 40vw; font-weight: 900; color: rgba(255,255,255,0.03);
+    font-family: 'Onest', sans-serif; line-height: 1; pointer-events: none;
+    user-select: none;
+  }
+  .hero-inner { max-width: 680px; position: relative; z-index: 1; }
+  .hero-pre {
+    color: rgba(255,255,255,0.55); font-size: 13px; letter-spacing: 3px;
+    text-transform: uppercase; margin-bottom: 20px;
+  }
+  .hero-h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 7vw, 72px);
+    font-weight: 700; color: #fff; line-height: 1.1; margin-bottom: 12px;
+    animation: fadeUp .8s ease both;
+  }
+  .hero-h1 em { color: var(--naranja); font-style: italic; }
+  .hero-sub {
+    color: rgba(255,255,255,0.7); font-size: 17px; line-height: 1.7;
+    max-width: 520px; margin-bottom: 36px;
+    animation: fadeUp .8s .15s ease both;
+  }
+  .hero-quote {
+    background: rgba(255,255,255,0.07); border-left: 3px solid var(--naranja);
+    padding: 14px 18px; border-radius: 0 8px 8px 0;
+    color: rgba(255,255,255,0.65); font-size: 14px; font-style: italic;
+    line-height: 1.6; margin-bottom: 36px;
+    animation: fadeUp .8s .25s ease both;
+  }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; animation: fadeUp .8s .35s ease both; }
+  .btn-primary {
+    background: var(--naranja); color: #fff; padding: 14px 28px;
+    border-radius: 8px; font-size: 14px; font-weight: 700;
+    text-decoration: none; border: none; cursor: pointer;
+    transition: transform .15s, opacity .15s;
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .btn-primary:hover { transform: translateY(-2px); opacity: .9; }
+  .btn-secondary {
+    background: transparent; color: #fff; padding: 14px 28px;
+    border-radius: 8px; font-size: 14px; font-weight: 600;
+    text-decoration: none; border: 1.5px solid rgba(255,255,255,0.35); cursor: pointer;
+    transition: border-color .15s, background .15s;
+  }
+  .btn-secondary:hover { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.06); }
+
+  /* ── SECCIONES ── */
+  section { padding: 90px 5%; }
+  .section-label {
+    font-size: 12px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: #C2410C; margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 42px); font-weight: 700;
+    color: var(--azul); line-height: 1.2; margin-bottom: 16px;
+  }
+  .section-sub {
+    font-size: 16px; color: var(--gris-suave); line-height: 1.7;
+    max-width: 580px; margin-bottom: 48px;
+  }
+
+  /* ── DOLOR ── */
+  #dolor { background: var(--gris-fondo); }
+  .dolor-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+  .dolor-card {
+    background: #fff; border-radius: var(--radius); padding: 24px;
+    border-left: 4px solid var(--azul);
+    transition: box-shadow .2s, transform .2s;
+  }
+  .dolor-card:hover { box-shadow: 0 8px 32px rgba(26,26,140,0.1); transform: translateY(-3px); }
+  .dolor-card h3 { font-size: 15px; font-weight: 700; color: var(--azul); margin-bottom: 8px; }
+  .dolor-card p { font-size: 13px; color: var(--gris-suave); line-height: 1.6; font-style: italic; }
+
+  /* ── METODOLOGÍA ── */
+  #metodologia { background: #fff; }
+  .pasos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  @media(max-width:700px) { .pasos { grid-template-columns: 1fr; } }
+  .paso {
+    background: var(--gris-fondo); border-radius: var(--radius);
+    padding: 32px 24px; position: relative; overflow: hidden;
+  }
+  .paso::before {
+    content: attr(data-num);
+    position: absolute; right: -10px; bottom: -20px;
+    font-size: 80px; font-weight: 900; color: rgba(26,26,140,0.06);
+    font-family: 'Onest', sans-serif; line-height: 1;
+  }
+  .paso-num {
+    width: 40px; height: 40px; background: var(--azul); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 16px; font-weight: 800; margin-bottom: 16px;
+  }
+  .paso h3 { font-size: 20px; font-weight: 800; color: var(--azul); margin-bottom: 8px; }
+  .paso p { font-size: 14px; color: var(--gris-suave); line-height: 1.6; }
+
+  /* ── SERVICIOS ── */
+  #servicios { background: var(--azul); }
+  #servicios .section-title { color: #fff; font-size: clamp(26px, 3.2vw, 34px); }
+  #servicios .section-sub { color: rgba(255,255,255,0.6); }
+  #servicios .section-label { color: #C2410C; }
+  .servicios-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+  .servicio-card {
+    background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
+    border-radius: var(--radius); padding: 28px; border-top: 3px solid var(--naranja);
+    transition: background .2s;
+  }
+  .servicio-card:hover { background: rgba(255,255,255,0.11); }
+  .servicio-card h3 { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+  .servicio-card p { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.6; }
+
+  /* ── EN ACCIÓN ── */
+  #accion { background: var(--gris-fondo); }
+  .casos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+  .caso-card {
+    background: #fff; border-radius: var(--radius); overflow: hidden;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+    transition: box-shadow .2s, transform .2s;
+  }
+  .caso-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.1); transform: translateY(-4px); }
+  .caso-header {
+    height: 130px; display: flex; align-items: center;
+    justify-content: center; padding: 20px; text-align: center;
+  }
+  .caso-body { padding: 20px; }
+  .caso-tag { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; color: var(--naranja); }
+  .caso-titulo { font-size: 15px; font-weight: 800; color: var(--azul); margin-bottom: 8px; line-height: 1.3; }
+  .caso-desc { font-size: 13px; color: var(--gris-suave); line-height: 1.6; }
+  .caso-fecha { font-size: 11px; color: #bbb; margin-top: 12px; }
+
+  /* ── PARTNERS ── */
+  #partners { background: #fff; }
+  .partners-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  @media(max-width:600px) { .partners-grid { grid-template-columns: 1fr; } }
+  .partner-card {
+    border: 1px solid #E8E8F0; border-radius: var(--radius); padding: 24px;
+    display: flex; gap: 16px; align-items: flex-start;
+    transition: border-color .2s, box-shadow .2s;
+  }
+  .partner-card:hover { border-color: var(--azul); box-shadow: 0 4px 20px rgba(26,26,140,0.08); }
+  .partner-icon {
+    min-width: 52px; height: 52px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; color: #fff; flex-shrink: 0; font-size: 12px; letter-spacing: -0.5px;
+  }
+  .partner-badge { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--naranja); margin-bottom: 5px; }
+  .partner-name { font-size: 16px; font-weight: 800; color: var(--azul); margin-bottom: 6px; }
+  .partner-desc { font-size: 13px; color: var(--gris-suave); line-height: 1.6; }
+  .partner-link { font-size: 12px; color: var(--azul); font-weight: 700; margin-top: 10px; display: inline-block; text-decoration: none; }
+  .partner-link:hover { color: var(--naranja); }
+  .partner-quote {
+    background: var(--gris-fondo); border-left: 4px solid var(--naranja);
+    border-radius: 0 8px 8px 0; padding: 18px 22px; margin-top: 32px;
+    font-size: 16px; font-style: italic; font-weight: 700;
+    color: var(--azul); line-height: 1.6;
+  }
+
+  /* ── TESTIMONIOS ── */
+  #testimonios { background: var(--gris-fondo); }
+  .t-featured {
+    background: var(--azul); border-radius: var(--radius);
+    padding: 36px; margin-bottom: 20px; position: relative; overflow: hidden;
+  }
+  .t-featured::before {
+    content: '"'; position: absolute; top: -10px; left: 20px;
+    font-size: 120px; color: rgba(255,255,255,0.08);
+    font-family: 'Playfair Display', serif; line-height: 1;
+  }
+  .t-featured-text { color: #fff; font-size: 15px; line-height: 1.8; font-style: italic; margin-bottom: 16px; position: relative; }
+  .t-featured-highlight { color: rgba(255,255,255,0.85); font-size: 14px; font-weight: 700; margin-bottom: 20px; }
+  .t-featured-autor { display: flex; align-items: center; gap: 12px; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 16px; }
+  .t-avatar { width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 13px; flex-shrink: 0; }
+  .t-nombre { font-size: 14px; font-weight: 700; color: #fff; }
+  .t-cargo { font-size: 11px; color: rgba(255,255,255,0.55); line-height: 1.4; }
+  .t-badge {
+    background: var(--naranja); color: #fff; font-size: 9px; font-weight: 700;
+    letter-spacing: 1px; padding: 3px 8px; border-radius: 20px; margin-bottom: 12px; display: inline-block;
+  }
+  .t-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+  .t-card {
+    background: #fff; border-radius: var(--radius); padding: 24px;
+    border-top: 3px solid var(--azul);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  }
+  .t-card-text { font-size: 13px; color: var(--gris-texto); line-height: 1.7; font-style: italic; margin-bottom: 16px; }
+  .t-card-autor { display: flex; align-items: center; gap: 10px; border-top: 1px solid #f0f0f0; padding-top: 14px; }
+  .t-card-nombre { font-size: 13px; font-weight: 700; color: var(--azul); }
+  .t-card-cargo { font-size: 10px; color: var(--gris-suave); line-height: 1.4; }
+  .t-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 24px; }
+  .t-tag { background: var(--azul); color: #fff; border-radius: 20px; padding: 5px 14px; font-size: 11px; font-weight: 700; }
+  .t-tag.orange { background: var(--naranja); }
+
+  /* ── QUIÉN SOY ── */
+  #quien { background: #fff; }
+  .quien-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  @media(max-width:768px) { .quien-inner { grid-template-columns: 1fr; } }
+  .quien-text p { font-size: 15px; color: var(--gris-texto); line-height: 1.8; margin-bottom: 16px; }
+  .quien-text p strong { color: var(--azul); }
+  .quien-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 28px; }
+  .stat { background: var(--gris-fondo); border-radius: 10px; padding: 20px; text-align: center; }
+  .stat-num { font-size: 32px; font-weight: 900; color: var(--azul); line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--gris-suave); margin-top: 4px; }
+  .quien-card {
+    background: var(--azul); border-radius: var(--radius); padding: 36px;
+    color: #fff; position: relative; overflow: hidden;
+  }
+  .quien-card::before {
+    content: '·R'; position: absolute; right: -20px; bottom: -30px;
+    font-size: 120px; font-weight: 900; color: rgba(255,255,255,0.05);
+    font-family: 'Onest', sans-serif; line-height: 1;
+  }
+  .quien-card-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px; font-style: italic; color: #fff;
+    line-height: 1.6; margin-bottom: 20px;
+  }
+  .quien-card-bio { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.7; }
+  .quien-card-bio strong { color: rgba(255,255,255,0.9); }
+
+  /* ── CTA ── */
+  #cta {
+    background: var(--naranja); text-align: center; padding: 80px 5%;
+  }
+  .cta-eyebrow {
+    display: inline-block;
+    background: rgba(255,255,255,0.18);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    border-radius: 999px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+  #cta h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 44px); font-weight: 700;
+    color: #fff; margin-bottom: 12px;
+  }
+  #cta p { color: rgba(255,255,255,0.85); font-size: 16px; margin-bottom: 32px; }
+  .cta-btn {
+    background: #fff; color: var(--naranja); padding: 16px 36px;
+    border-radius: 8px; font-size: 15px; font-weight: 800;
+    text-decoration: none; display: inline-block;
+    transition: transform .15s, box-shadow .15s;
+  }
+  .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--azul-deep); padding: 48px 5% 32px;
+    text-align: center;
+  }
+  footer img { height: 44px; object-fit: contain; margin-bottom: 12px; }
+  footer p { color: rgba(255,255,255,0.4); font-size: 12px; letter-spacing: 1px; margin: 4px 0; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .reveal {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity .6s ease, transform .6s ease;
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ── RESPONSIVE ── */
+  @media(max-width:768px) {
+    nav ul { display: none; }
+    .pasos { grid-template-columns: 1fr; }
+    .servicios-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── QUIÉNES SOMOS (Misión/Visión/Valores) ── */
+  #quien { padding: 96px 5%; background: var(--gris-fondo); }
+  .mvv-grid {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 22px; margin-top: 36px; max-width: 1200px; margin-left: auto; margin-right: auto;
+  }
+  @media(max-width:900px) { .mvv-grid { grid-template-columns: 1fr; } }
+  .mvv-card {
+    background: #fff; border-radius: var(--radius); padding: 28px 26px;
+    border-top: 4px solid var(--naranja);
+    box-shadow: 0 4px 18px rgba(26,26,140,0.06);
+    display: flex; flex-direction: column;
+  }
+  .mvv-tag {
+    color: #C2410C; font-size: 13px; letter-spacing: 2px;
+    text-transform: uppercase; font-weight: 800; margin-bottom: 14px;
+  }
+  .mvv-title {
+    color: var(--azul); font-size: 22px; font-weight: 800;
+    line-height: 1.2; margin-bottom: 14px; font-family: 'Playfair Display', serif;
+    font-style: italic;
+  }
+  .mvv-text {
+    color: var(--gris-texto); font-size: 15px; line-height: 1.7; flex: 1;
+  }
+  .mvv-values { list-style: none; padding: 0; margin: 0; }
+  .mvv-values li {
+    padding: 10px 0; border-bottom: 1px solid #EFEFF4; font-size: 15px;
+    color: var(--gris-texto); line-height: 1.55;
+  }
+  .mvv-values li:last-child { border-bottom: none; }
+  .mvv-values strong { color: var(--azul); font-weight: 800; display: block; font-size: 14px; margin-bottom: 2px; letter-spacing: 0.5px; }
+
+  /* ── EL FUNDADOR (renombrado de Quién soy) ── */
+  #fundador { padding: 96px 5%; background: var(--azul); color: #fff; }
+  #fundador .section-title { color: #fff; }
+  #fundador .quien-text p { color: #fff; }
+  #fundador .quien-text p strong { color: var(--naranja); }
+  #fundador .quien-text img { border-color: rgba(255,255,255,0.25) !important; box-shadow: 0 8px 32px rgba(0,0,0,0.25) !important; }
+  #fundador .stat-num { color: var(--naranja); }
+  #fundador .stat-label { color: var(--azul); font-weight: 600; }
+
+  /* ── DIAGNÓSTICO (CTA pre-contacto) ── */
+  #diagnostico {
+    padding: 80px 5%; background: linear-gradient(135deg, var(--azul) 0%, #2B2BB0 100%);
+    color: #fff; text-align: center;
+  }
+  .diag-eyebrow {
+    color: #C2410C; font-size: 13px; letter-spacing: 2px;
+    text-transform: uppercase; font-weight: 800; margin-bottom: 14px;
+  }
+  .diag-title {
+    color: #fff; font-size: clamp(28px, 5vw, 42px); font-weight: 800;
+    line-height: 1.15; margin-bottom: 16px; font-family: 'Playfair Display', serif;
+  }
+  .diag-title em { color: var(--naranja); font-style: italic; }
+  .diag-sub {
+    color: rgba(255,255,255,0.75); font-size: 17px; line-height: 1.6;
+    max-width: 580px; margin: 0 auto 24px;
+  }
+  .diag-bullets {
+    display: flex; justify-content: center; gap: 24px;
+    flex-wrap: wrap; margin-bottom: 32px;
+  }
+  .diag-bullet {
+    color: rgba(255,255,255,0.6); font-size: 13px; letter-spacing: 1.5px;
+  }
+  .diag-bullet strong { color: #fff; font-weight: 800; }
+  .diag-cta {
+    display: inline-block; background: var(--naranja); color: #fff;
+    padding: 18px 36px; border-radius: 10px; font-size: 16px; font-weight: 800;
+    text-decoration: none; transition: transform .15s, box-shadow .15s;
+    box-shadow: 0 6px 22px rgba(242,120,75,0.4);
+  }
+  .diag-cta:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(242,120,75,0.5); }
+
+  /* ── Diagnóstico inline ── */
+  #diagnostico .dr-app { max-width: 720px; margin: 0 auto; text-align: left; }
+  #diagnostico .dr-card {
+    background: #fff; color: var(--gris-texto); border-radius: 14px;
+    padding: 38px 36px; margin-top: 28px;
+    box-shadow: 0 10px 32px rgba(0,0,0,0.18);
+  }
+  @media(max-width:600px) { #diagnostico .dr-card { padding: 26px 22px; } }
+  #diagnostico .dr-progress-wrap { margin-bottom: 24px; }
+  #diagnostico .dr-progress-bar { height: 6px; background: #E8E8F0; border-radius: 3px; overflow: hidden; }
+  #diagnostico .dr-progress-fill { height: 100%; background: var(--naranja); transition: width .35s; }
+  #diagnostico .dr-progress-label { font-size: 12px; color: #8A8A98; margin-top: 6px; }
+  #diagnostico .dr-q-num {
+    color: var(--naranja); font-size: 12px; letter-spacing: 3px;
+    text-transform: uppercase; font-weight: 800; margin-bottom: 8px;
+  }
+  #diagnostico .dr-q-title {
+    color: var(--azul); font-size: clamp(22px,4vw,28px); font-weight: 800;
+    line-height: 1.25; margin-bottom: 10px; font-family: 'Playfair Display', serif;
+  }
+  #diagnostico .dr-q-sub {
+    color: #8A8A98; font-size: 14px; font-style: italic; margin-bottom: 24px;
+  }
+  #diagnostico .dr-options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 26px; }
+  #diagnostico .dr-option {
+    background: #fff; border: 1.5px solid #E8E8F0; border-radius: 10px;
+    padding: 16px 18px; cursor: pointer; transition: all .15s;
+    display: flex; align-items: center; gap: 12px;
+    font-size: 15px; color: var(--gris-texto); text-align: left;
+  }
+  #diagnostico .dr-option:hover { border-color: var(--naranja); background: #FFF8F5; }
+  #diagnostico .dr-option.selected { border-color: var(--naranja); background: #FFF1EA; color: var(--azul); font-weight: 600; }
+  #diagnostico .dr-option-bullet {
+    width: 20px; height: 20px; border: 2px solid #E8E8F0; border-radius: 50%;
+    flex-shrink: 0; position: relative;
+  }
+  #diagnostico .dr-option.selected .dr-option-bullet { border-color: var(--naranja); }
+  #diagnostico .dr-option.selected .dr-option-bullet::after {
+    content: ""; width: 10px; height: 10px; background: var(--naranja);
+    border-radius: 50%; position: absolute; top: 3px; left: 3px;
+  }
+  #diagnostico .dr-nav-row { display: flex; gap: 12px; justify-content: space-between; }
+  #diagnostico .dr-btn {
+    padding: 14px 26px; border-radius: 8px; font-size: 15px; font-weight: 700;
+    cursor: pointer; border: none; font-family: inherit; transition: transform .15s, opacity .15s;
+    text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  }
+  #diagnostico .dr-btn-primary { background: var(--naranja); color: #fff; }
+  #diagnostico .dr-btn-primary:hover { transform: translateY(-2px); opacity: .92; }
+  #diagnostico .dr-btn-primary:disabled { opacity: .45; cursor: not-allowed; transform: none; }
+  #diagnostico .dr-btn-secondary { background: transparent; color: var(--azul); border: 1.5px solid #E8E8F0; }
+  #diagnostico .dr-btn-wa { background: #25D366; color: #fff; }
+  #diagnostico .dr-btn-block { width: 100%; }
+  #diagnostico .dr-gate-icon { font-size: 32px; margin-bottom: 10px; }
+  #diagnostico .dr-result-title {
+    color: var(--azul); font-size: 22px; font-weight: 800; margin-bottom: 12px; margin-top: 14px;
+    font-family: 'Playfair Display', serif;
+  }
+  #diagnostico .dr-result-text { font-size: 15px; line-height: 1.7; margin-bottom: 16px; color: var(--gris-texto); }
+  #diagnostico .dr-r-next { font-weight: 600; color: var(--azul); }
+  #diagnostico .dr-form-group { margin-bottom: 16px; }
+  #diagnostico .dr-form-group label {
+    display: block; font-size: 13px; font-weight: 600; color: var(--azul); margin-bottom: 6px;
+  }
+  #diagnostico .dr-form-group input {
+    width: 100%; padding: 12px 14px; border: 1.5px solid #E8E8F0; border-radius: 8px;
+    font-size: 15px; font-family: inherit; transition: border-color .15s;
+  }
+  #diagnostico .dr-form-group input:focus { outline: none; border-color: var(--naranja); }
+  #diagnostico .dr-form-helper { font-size: 12px; color: #8A8A98; margin-top: 4px; }
+  #diagnostico .dr-form-error { color: #E54B4B; font-size: 13px; margin: 8px 0; display: none; }
+  #diagnostico .dr-score-block {
+    text-align: center; padding: 24px 0; background: #F5F5F8;
+    border-radius: 10px; margin-bottom: 18px;
+  }
+  #diagnostico .dr-score-num {
+    font-size: 64px; font-weight: 900; line-height: 1; color: var(--azul); margin-bottom: 4px;
+    font-family: 'Playfair Display', serif;
+  }
+  #diagnostico .dr-score-max { color: #8A8A98; font-size: 20px; font-weight: 600; margin-left: 4px; }
+  #diagnostico .dr-score-band {
+    display: inline-block; margin-top: 10px; padding: 6px 18px; border-radius: 20px;
+    color: #fff; font-size: 13px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase;
+  }
+  #diagnostico .dr-band-rojo { background: #E54B4B; }
+  #diagnostico .dr-band-ambar { background: #F2A93B; }
+  #diagnostico .dr-band-verde { background: #4BAE7C; }
+  #diagnostico .dr-band-azul { background: var(--azul); }
+  #diagnostico .dr-priority-box {
+    background: var(--azul); color: #fff; padding: 20px 22px; border-radius: 10px; margin: 18px 0;
+  }
+  #diagnostico .dr-priority-box h4 {
+    color: var(--naranja); font-size: 12px; letter-spacing: 2px;
+    text-transform: uppercase; margin-bottom: 8px; font-weight: 800;
+  }
+  #diagnostico .dr-priority-box p { color: rgba(255,255,255,0.92); font-size: 15px; line-height: 1.6; }
+  #diagnostico .dr-cta-block { display: flex; flex-direction: column; gap: 12px; margin-top: 24px; }
+  /* Cuando el diagnóstico empieza, esconder el pitch */
+  #diagnostico.dr-started .diag-eyebrow,
+  #diagnostico.dr-started .diag-title,
+  #diagnostico.dr-started .diag-sub,
+  #diagnostico.dr-started .diag-bullets,
+  #diagnostico.dr-started .diag-cta { display: none !important; }
+
+  /* ── AUTHORITY BAND ── */
+  #authority {
+    background: var(--azul); padding: 56px 5%;
+    border-bottom: 4px solid var(--naranja);
+  }
+  .auth-eyebrow {
+    text-align: center; color: var(--naranja); font-size: 11px;
+    letter-spacing: 3px; text-transform: uppercase; font-weight: 800;
+    margin-bottom: 28px;
+  }
+  .auth-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+    max-width: 1200px; margin: 0 auto;
+  }
+  @media(max-width: 900px) { .auth-grid { grid-template-columns: repeat(2, 1fr); gap: 0; } }
+  @media(max-width: 480px) { .auth-grid { grid-template-columns: 1fr; } }
+  .auth-item {
+    text-align: center; padding: 44px 32px;
+    border-right: 1px solid rgba(255,255,255,0.1);
+  }
+  .auth-item:last-child { border-right: none; }
+.auth-item:last-child { border-right: none; }
+  @media(max-width: 900px) {
+    .auth-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.12); padding: 16px 8px; }
+    .auth-item:last-child { border-bottom: none; }
+  }
+  .auth-num {
+    color: var(--naranja); font-family: 'Playfair Display', serif;
+    font-size: clamp(66px, 6.2vw, 90px); font-weight: 900; line-height: 1; margin-bottom: 14px;
+  }
+  .auth-label {
+    color: rgba(255,255,255,0.9); font-size: clamp(16px, 1.4vw, 19px); line-height: 1.5;
+    letter-spacing: 0.2px; font-weight: 600;
+  }
+  .auth-label .auth-sub {
+    display: block; color: rgba(255,255,255,0.42); font-size: clamp(11px, 0.9vw, 13px);
+    margin-top: 6px; font-weight: 400; letter-spacing: 0.3px;
+  }
+
+  /* ── SERVICIO outcome-name ── */
+  .servicio-name {
+    color: rgba(255,255,255,0.55); font-size: 12px; letter-spacing: 2px;
+    text-transform: uppercase; font-weight: 700; margin: -4px 0 14px;
+  }
+
+  .auth-sub { color: rgba(255,255,255,0.45); font-size: 10px; font-weight: 500; letter-spacing: 0.2px; display: block; margin-top: 2px; }
+
+  /* ── DOLOR — capa síntomas operativos ── */
+  .dolor-layer-label {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 24px;
+    color: var(--azul);
+    margin: 40px 0 18px;
+    text-align: center;
+    letter-spacing: 0.5px;
+  }
+  .dolor-sintomas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    max-width: 1100px;
+    margin: 0 auto 24px;
+    padding: 0 5%;
+  }
+  .sintoma {
+    background: #fff;
+    border: 1px solid #ececec;
+    border-left: 3px solid var(--naranja);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--gris-texto);
+  }
+  .sintoma strong {
+    color: var(--azul-deep);
+    font-weight: 800;
+  }
+  @media (max-width: 900px) {
+    .dolor-sintomas { grid-template-columns: 1fr; }
+  }
+  .section-close {
+    text-align: center;
+    margin: 36px auto 0;
+    max-width: 760px;
+    color: var(--gris-suave);
+    font-size: 17px;
+    padding: 0 5%;
+  }
+
+  /* ── DIAGNÓSTICO ESTRUCTURAL (Cultura · Organización · Gobierno) ── */
+  #diagnostico-estructural {
+    background: #fff;
+    padding: 90px 5%;
+  }
+  .capas-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    max-width: 1200px;
+    margin: 50px auto 0;
+  }
+  .capa-card {
+    background: var(--gris-fondo);
+    border-radius: var(--radius);
+    padding: 36px 28px;
+    border-top: 4px solid var(--azul);
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .capa-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 40px rgba(26,26,140,0.08);
+  }
+  .capa-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--naranja);
+    margin-bottom: 14px;
+    line-height: 1;
+  }
+  .capa-card h3 {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--azul-deep);
+    margin-bottom: 12px;
+    line-height: 1.25;
+  }
+  .capa-card p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--gris-texto);
+  }
+  @media (max-width: 900px) {
+    .capas-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── RESULTADO (Rentabilidad · Control · Crecimiento) ── */
+  #resultado {
+    background: var(--gris-fondo);
+    padding: 90px 5%;
+  }
+  .resultado-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    max-width: 1200px;
+    margin: 50px auto 0;
+  }
+  .resultado-card {
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 36px 28px;
+    border-left: 4px solid var(--naranja);
+    box-shadow: 0 4px 18px rgba(0,0,0,0.04);
+  }
+  .resultado-card h3 {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--azul-deep);
+    margin-bottom: 12px;
+    line-height: 1.25;
+  }
+  .resultado-card p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--gris-texto);
+    margin-bottom: 18px;
+  }
+  .resultado-sub {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--naranja);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-top: 1px solid #ececec;
+    padding-top: 14px;
+    line-height: 1.5;
+  }
+  @media (max-width: 900px) {
+    .resultado-grid { grid-template-columns: 1fr; }
+  }
+
+
+  /* ── SECCIÓN FUNDADOR / POR QUÉ HAGO ESTO ── */
+  #fundador {
+    background: linear-gradient(180deg, var(--azul-deep) 0%, var(--azul) 100%);
+    color: #fff;
+    padding: 90px 5%;
+  }
+  #fundador .section-label { color: rgba(255,255,255,0.6); }
+  #fundador .section-title { color: #fff; }
+  #fundador .section-sub { color: rgba(255,255,255,0.75); }
+  .fundador-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1200px;
+    margin: 50px auto 0;
+  }
+  .fundador-block {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--radius);
+    padding: 32px 26px;
+    backdrop-filter: blur(4px);
+  }
+  .fundador-block-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--naranja);
+    border: 1px solid var(--naranja);
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-bottom: 18px;
+  }
+  .fundador-block p {
+    color: rgba(255,255,255,0.88);
+    font-size: 15px;
+    line-height: 1.65;
+    margin-bottom: 14px;
+  }
+  .fundador-block p:last-child { margin-bottom: 0; }
+  .fundador-block strong { color: #fff; font-weight: 700; }
+  .fundador-pacto {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .fundador-pacto li {
+    color: rgba(255,255,255,0.88);
+    font-size: 14px;
+    line-height: 1.6;
+    padding: 12px 0 12px 22px;
+    position: relative;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .fundador-pacto li:last-child { border-bottom: none; }
+  .fundador-pacto li::before {
+    content: "→";
+    color: var(--naranja);
+    font-weight: 800;
+    position: absolute;
+    left: 0;
+    top: 12px;
+  }
+  .fundador-cierre {
+    text-align: center;
+    margin: 60px auto 0;
+    max-width: 700px;
+  }
+  .fundador-cierre-text {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 22px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 12px;
+  }
+  .fundador-cierre-brand {
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--naranja);
+    letter-spacing: -0.5px;
+    margin-bottom: 22px;
+  }
+  .fundador-firma {
+    font-size: 13px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  @media (max-width: 900px) {
+    .fundador-grid { grid-template-columns: 1fr; }
+  }
+
+
+  /* ── BANDAS DENTRO DE EN ACCIÓN ── */
+  .banda-label {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    max-width: 1200px;
+    margin: 50px auto 24px;
+    padding: 0 5%;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    padding-bottom: 14px;
+  }
+  .banda-num {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 32px;
+    color: var(--naranja);
+    font-weight: 700;
+    line-height: 1;
+  }
+  .banda-text {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--azul-deep);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .banda-text em {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--gris-suave);
+    text-transform: none;
+    letter-spacing: 0;
+  }
+  .caso-card-reset {
+    position: relative;
+  }
+  .caso-card-reset::before {
+    content: "RESETNESS";
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.55);
+    background: rgba(0,0,0,0.25);
+    padding: 3px 8px;
+    border-radius: 10px;
+    z-index: 2;
+  }
+  .banda-visibilidad {
+    max-width: 1200px;
+    margin: 20px auto 0;
+    padding: 0 5%;
+  }
+  .visib-item {
+    background: linear-gradient(135deg, #f6f5f2 0%, #ece9e2 100%);
+    border-left: 3px solid var(--naranja);
+    border-radius: var(--radius);
+    padding: 22px 26px;
+    display: grid;
+    gap: 8px;
+  }
+  .visib-tag {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: #C2410C;
+  }
+  .visib-title {
+    font-size: 17px;
+    font-weight: 800;
+    color: var(--azul-deep);
+    line-height: 1.3;
+  }
+  .visib-desc {
+    font-size: 14px;
+    color: var(--gris-texto);
+    line-height: 1.55;
+  }
+
+
+  /* ── MÉTODO UNIFICADO ── */
+  #metodo {
+    background: var(--gris-fondo);
+    padding: 90px 5%;
+  }
+  .metodo-mini-band {
+    max-width: 1200px;
+    margin: 50px auto 16px;
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .mini-band-tag {
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: #fff;
+    background: var(--naranja);
+    padding: 5px 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+  }
+  .mini-band-text {
+    font-size: 15px;
+    color: var(--gris-texto);
+    font-weight: 500;
+  }
+  /* Chips de capas + resultados */
+  .metodo-capas, .metodo-resultados {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .capa-chip, .resultado-chip {
+    background: #fff;
+    border-radius: 10px;
+    padding: 18px 22px;
+    border-left: 3px solid var(--azul);
+    display: grid;
+    gap: 4px;
+  }
+  .resultado-chip {
+    border-left-color: var(--naranja);
+  }
+  .capa-chip strong, .resultado-chip strong {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--azul-deep);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .resultado-chip strong { color: var(--naranja); }
+  .capa-chip span, .resultado-chip span {
+    font-size: 13px;
+    color: var(--gris-texto);
+    line-height: 1.5;
+  }
+  @media (max-width: 900px) {
+    .metodo-capas, .metodo-resultados { grid-template-columns: 1fr; }
+  }
+  /* Flujo visual */
+  .metodo-flow {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr;
+    gap: 16px;
+    align-items: stretch;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .flow-step {
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    border-top: 4px solid var(--azul);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+  }
+  .flow-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--naranja);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .flow-phase {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--azul-deep);
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+  .flow-time {
+    font-size: 11px;
+    color: var(--gris-suave);
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed #e0e0e0;
+  }
+  .flow-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 18px 0;
+    flex-grow: 1;
+  }
+  .flow-list li {
+    font-size: 13.5px;
+    color: var(--gris-texto);
+    line-height: 1.5;
+    padding: 6px 0 6px 18px;
+    position: relative;
+  }
+  .flow-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--naranja);
+    font-weight: 900;
+  }
+  .flow-entrega {
+    font-size: 12px;
+    color: var(--azul-deep);
+    background: var(--gris-fondo);
+    border-radius: 8px;
+    padding: 10px 14px;
+    line-height: 1.45;
+  }
+  .flow-entrega span {
+    font-weight: 800;
+    color: #C2410C;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 12px;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .flow-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    color: var(--naranja);
+    font-weight: 900;
+  }
+  @media (max-width: 900px) {
+    .metodo-flow { grid-template-columns: 1fr; }
+    .flow-arrow { transform: rotate(90deg); padding: 10px 0; }
+  }
+  /* Testimonio integrado en card de caso */
+  .caso-quote {
+    margin-top: 14px;
+    padding: 14px 16px;
+    background: linear-gradient(135deg, rgba(194, 65, 12,0.05), rgba(26,26,140,0.03));
+    border-left: 3px solid var(--naranja);
+    border-radius: 8px;
+  }
+  .caso-quote p {
+    font-size: 13px;
+    font-style: italic;
+    color: var(--gris-texto);
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+  .caso-quote-autor {
+    font-size: 11px;
+    color: var(--gris-suave);
+    line-height: 1.5;
+  }
+  .caso-quote-autor strong {
+    color: var(--azul-deep);
+    font-weight: 800;
+  }
+
+
+  /* ── AUTHORITY BAND — suavizado (es trayectoria del fundador) ── */
+  #authority {
+    background: linear-gradient(180deg, var(--azul) 0%, var(--azul-deep) 100%);
+    padding: 36px 5%;
+    border-bottom: 2px solid rgba(194, 65, 12,0.4);
+  }
+  .auth-eyebrow {
+    font-size: 10px;
+    color: rgba(194, 65, 12,0.85);
+    margin-bottom: 4px;
+    letter-spacing: 2.5px;
+  }
+  .auth-sub-eyebrow {
+    text-align: center;
+    color: rgba(255,255,255,0.45);
+    font-size: 12px;
+    font-style: italic;
+    margin-bottom: 22px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .auth-grid {
+    gap: 16px;
+    max-width: 1100px;
+    opacity: 0.92;
+  }
+  .auth-item {
+    padding: 10px 8px;
+  }
+  .auth-num {
+    font-size: 28px;
+    color: rgba(194, 65, 12,0.95);
+    margin-bottom: 3px;
+  }
+  .auth-label {
+    color: rgba(255,255,255,0.6);
+    font-size: 11px;
+  }
+  .auth-sub {
+    color: rgba(255,255,255,0.35);
+    font-size: 9.5px;
+    margin-top: 1px;
+  }
+
+
+  /* ── FUNDADOR — foto en el cierre ── */
+  .fundador-cierre-photo {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 24px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--naranja);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    background: #1A1A8C;
+  }
+  .fundador-cierre-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+
+
+  /* ── Speaker attribution en banda visibilidad ── */
+  .visib-speaker {
+    font-size: 13px;
+    color: var(--naranja);
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    margin-top: -2px;
+  }
+  .visib-speaker strong {
+    color: var(--azul-deep);
+    font-weight: 800;
+  }
+
+
+  /* ── Fundador — nombre del cierre ── */
+  .fundador-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 4px;
+    letter-spacing: 0.3px;
+  }
+
+
+  /* ── Fundador — LinkedIn link en cierre ── */
+  .fundador-linkedin {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 18px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    padding: 9px 16px;
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 24px;
+    transition: color .2s ease, background .2s ease, border-color .2s ease, transform .2s ease;
+  }
+  .fundador-linkedin:hover {
+    color: #fff;
+    background: rgba(194, 65, 12,0.12);
+    border-color: var(--naranja);
+    transform: translateY(-1px);
+  }
+  .fundador-linkedin svg {
+    flex-shrink: 0;
+    opacity: 0.9;
+  }
+  .fundador-linkedin:hover svg {
+    opacity: 1;
+  }
+
+
+  /* ════════════════════════════════════
+     RESPONSIVE — Mobile + tablet pack
+     ════════════════════════════════════ */
+
+  /* Botón hamburguesa (escondido en desktop) */
+  .nav-toggle {
+    display: none;
+    background: transparent;
+    border: 0;
+    padding: 8px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    z-index: 101;
+  }
+  .nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: #fff;
+    margin: 5px auto;
+    transition: transform .25s ease, opacity .2s ease;
+    border-radius: 1px;
+  }
+  .nav-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  .nav-toggle.open span:nth-child(2) { opacity: 0; }
+  .nav-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+  /* ── TABLET y mobile (max-width 900px) ── */
+  @media (max-width: 900px) {
+    .nav-toggle { display: block; }
+    nav ul {
+      position: fixed;
+      top: 72px;
+      left: 0;
+      right: 0;
+      background: rgba(13,27,46,0.99);
+      backdrop-filter: blur(12px);
+      flex-direction: column;
+      align-items: stretch;
+      padding: 16px 5% 24px;
+      gap: 0;
+      transform: translateY(-110%);
+      transition: transform .3s ease;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      max-height: calc(100vh - 72px);
+      overflow-y: auto;
+    }
+    nav ul.open { transform: translateY(0); }
+    nav ul li { width: 100%; }
+    nav ul li a {
+      display: block;
+      padding: 16px 4px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      font-size: 15px;
+    }
+    nav ul li:last-child a { border-bottom: none; }
+    nav ul li a.nav-cta {
+      background: var(--naranja);
+      border-radius: 6px;
+      text-align: center;
+      margin-top: 8px;
+      padding: 12px;
+    }
+    .nav-logo-svg { height: 38px; }
+    .nav-logo-icon { height: 42px; width: 42px; }
+  }
+
+  /* ── HERO mobile ── */
+  @media (max-width: 900px) {
+    #hero { padding: 100px 5% 60px; }
+    .hero-h1 { font-size: 38px !important; line-height: 1.08 !important; }
+    .hero-sub { font-size: 16px !important; }
+    .hero-pre { font-size: 10px !important; letter-spacing: 1.2px !important; }
+    .hero-quote { font-size: 14px !important; padding: 14px 18px !important; }
+    .hero-btns { flex-direction: column !important; gap: 12px !important; }
+    .hero-btns a { width: 100%; text-align: center; }
+    .hero-bg-r { font-size: 280px !important; right: -40px !important; }
+  }
+
+  /* ── SECCIONES generales mobile ── */
+  @media (max-width: 900px) {
+    section { padding-left: 5% !important; padding-right: 5% !important; }
+    .section-title { font-size: 28px !important; line-height: 1.15 !important; }
+    .section-label { font-size: 12px !important; letter-spacing: 1.5px !important; }
+    .section-sub { font-size: 14px !important; }
+  }
+
+  /* ── DOLOR mobile ── */
+  @media (max-width: 900px) {
+    .dolor-grid { grid-template-columns: 1fr !important; gap: 12px !important; }
+    .dolor-card h3 { font-size: 16px !important; }
+    .dolor-card p { font-size: 13.5px !important; }
+    .dolor-sintomas { grid-template-columns: 1fr; }
+    .dolor-layer-label { font-size: 20px !important; margin: 28px 0 14px !important; }
+  }
+
+  /* ── MÉTODO mobile ── */
+  @media (max-width: 900px) {
+    #metodo { padding: 60px 5% !important; }
+    .metodo-mini-band {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      margin: 36px auto 14px;
+    }
+    .mini-band-text { font-size: 14px; }
+    .metodo-capas, .metodo-resultados { grid-template-columns: 1fr !important; gap: 10px !important; }
+    .metodo-flow {
+      grid-template-columns: 1fr !important;
+      gap: 12px !important;
+    }
+    .flow-arrow {
+      transform: rotate(90deg);
+      padding: 6px 0;
+      font-size: 22px;
+    }
+    .flow-step { padding: 22px 20px !important; }
+    .flow-phase { font-size: 20px !important; }
+  }
+
+  /* ── M/V/V mobile ── */
+  @media (max-width: 900px) {
+    .mvv-grid { grid-template-columns: 1fr !important; gap: 14px !important; }
+    .mvv-title { font-size: 18px !important; }
+    .mvv-text { font-size: 14px !important; }
+  }
+
+  /* ── SERVICIOS mobile ── */
+  @media (max-width: 900px) {
+    .servicios-grid { grid-template-columns: 1fr !important; gap: 14px !important; }
+    .servicio-card { padding: 24px !important; }
+    .servicio-card h3 { font-size: 18px !important; }
+  }
+
+  /* ── EN ACCIÓN / casos mobile ── */
+  @media (max-width: 900px) {
+    .casos-grid { grid-template-columns: 1fr !important; gap: 14px !important; }
+    .caso-header { padding: 24px !important; }
+    .caso-body { padding: 22px !important; }
+    .caso-titulo { font-size: 16px !important; }
+    .caso-desc { font-size: 13.5px !important; }
+    .banda-label { padding: 0 !important; }
+    .banda-text { font-size: 11px !important; }
+  }
+
+  /* ── PARTNERS mobile ── */
+  @media (max-width: 900px) {
+    .partners-grid { grid-template-columns: 1fr !important; gap: 14px !important; }
+    .partner-card { padding: 24px !important; }
+    .partner-name { font-size: 18px !important; }
+    .partner-desc { font-size: 13.5px !important; }
+  }
+
+  /* ── FUNDADOR mobile ── */
+  @media (max-width: 900px) {
+    #fundador { padding: 60px 5% !important; }
+    .fundador-grid { grid-template-columns: 1fr !important; gap: 14px !important; }
+    .fundador-block { padding: 24px !important; }
+    .fundador-block p { font-size: 14px !important; }
+    .fundador-cierre-photo { width: 100px !important; height: 100px !important; }
+    .fundador-cierre-text { font-size: 18px !important; }
+    .fundador-cierre-brand { font-size: 22px !important; }
+    .fundador-name { font-size: 18px !important; }
+  }
+
+  /* ── DIAGNÓSTICO interactivo mobile ── */
+  @media (max-width: 900px) {
+    #diagnostico { padding: 50px 5% !important; }
+    .diag-title { font-size: 28px !important; line-height: 1.15 !important; }
+  }
+
+  /* ── CTA final mobile ── */
+  @media (max-width: 900px) {
+    #cta { padding: 50px 5% !important; }
+    .cta-eyebrow { font-size: 10px !important; letter-spacing: 1.5px !important; padding: 7px 14px !important; margin-bottom: 16px !important; }
+    #cta h2 { font-size: 28px !important; line-height: 1.2 !important; }
+  }
+
+  /* ── EXTRA tight: phones pequeños (max 480px) ── */
+  @media (max-width: 480px) {
+    .hero-h1 { font-size: 32px !important; }
+    .section-title { font-size: 24px !important; }
+    .metodo-flow .flow-num { font-size: 22px !important; }
+    .visib-item { padding: 18px 20px !important; }
+    .fundador-pacto li { font-size: 13px !important; }
+  }
+
+
+  /* ── Hero location marker ── */
+  .hero-location {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 14px;
+    font-size: 11px;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 2.2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 6px 12px;
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 20px;
+    background: rgba(255,255,255,0.04);
+    backdrop-filter: blur(2px);
+  }
+  .hero-location svg {
+    color: var(--naranja);
+    flex-shrink: 0;
+  }
+  @media (max-width: 480px) {
+    .hero-location { font-size: 10px; padding: 5px 10px; }
+  }
+
+
+  /* ── Nav location marker (junto al logo) ── */
+  .nav-location {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: 14px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.14);
+    color: rgba(255,255,255,0.7);
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    flex-shrink: 0;
+  }
+  .nav-location svg {
+    color: var(--naranja);
+    flex-shrink: 0;
+  }
+  @media (max-width: 600px) {
+    .nav-location {
+      margin-left: 8px;
+      padding: 4px 8px;
+      font-size: 9.5px;
+      letter-spacing: 1px;
+    }
+    .nav-location span { display: inline; }
+  }
+  @media (max-width: 380px) {
+    .nav-location span { display: none; }
+    .nav-location { padding: 5px; }
+  }
+
+
+  /* ── Cursor icon en CTA primario ── */
+  .btn-primary .btn-cursor {
+    display: inline-block;
+    vertical-align: -2px;
+    margin-left: 8px;
+    transition: transform .2s ease;
+  }
+  .btn-primary:hover .btn-cursor {
+    transform: translate(2px, -2px);
+  }
+
+
+  /* ── NAV FIX — evitar wrap de items, breakpoint hamburguesa más alto ── */
+  nav { padding: 12px 3% !important; gap: 12px; }
+  nav ul {
+    gap: 18px !important;
+    flex-wrap: nowrap !important;
+  }
+  nav ul li a {
+    white-space: nowrap;
+    font-size: 12.5px;
+  }
+  nav ul li a.nav-cta {
+    padding: 8px 14px;
+    border-radius: 6px;
+    background: var(--naranja);
+    color: #fff !important;
+  }
+  /* En pantallas medianas (1100-1300px) ajustamos más */
+  @media (max-width: 1300px) {
+    nav ul { gap: 14px !important; }
+    nav ul li a { font-size: 12px; }
+    .nav-location {
+      margin-left: 10px;
+      padding: 4px 9px;
+      font-size: 10px;
+      letter-spacing: 1.2px;
+    }
+  }
+  /* ── Nav compacto en pantallas medianas (sin hamburguesa) ── */
+  @media (max-width: 1400px) {
+    nav { padding: 12px 2.5% !important; }
+    nav ul { gap: 10px !important; }
+    nav ul li a { font-size: 12px !important; }
+    .nav-location { font-size: 9.5px !important; padding: 4px 8px !important; margin-left: 8px !important; }
+    .nav-cta { padding: 7px 12px !important; font-size: 12px !important; }
+    .nav-logo-svg { height: 40px !important; }
+    .nav-logo-icon { height: 42px !important; width: 42px !important; }
+  }
+
+  /* ── Hamburguesa solo en tablet/mobile (<= 1024px) ── */
+  @media (max-width: 1024px) {
+    .nav-toggle { display: block !important; }
+    nav ul {
+      position: fixed;
+      top: 72px;
+      left: 0;
+      right: 0;
+      background: rgba(13,27,46,0.99);
+      backdrop-filter: blur(12px);
+      flex-direction: column;
+      align-items: stretch;
+      padding: 16px 5% 24px;
+      gap: 0 !important;
+      transform: translateY(-110%);
+      transition: transform .3s ease;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      max-height: calc(100vh - 72px);
+      overflow-y: auto;
+    }
+    nav ul.open { transform: translateY(0); }
+    nav ul li { width: 100%; }
+    nav ul li a {
+      display: block;
+      padding: 16px 4px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      font-size: 15px;
+      white-space: normal;
+    }
+    nav ul li:last-child a { border-bottom: none; }
+    nav ul li a.nav-cta {
+      background: var(--naranja);
+      border-radius: 6px;
+      text-align: center;
+      margin-top: 8px;
+      padding: 12px;
+    }
+    .nav-dropdown { width: 100%; }
+    .nav-dropdown-trigger {
+      width: 100%;
+      text-align: left;
+      padding: 14px 0;
+      font-size: 15px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.85);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .nav-dd-caret { display: none; }
+    .nav-dropdown-menu {
+      position: static !important;
+      transform: none !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      pointer-events: auto !important;
+      background: transparent !important;
+      backdrop-filter: none !important;
+      border: none !important;
+      border-radius: 0 !important;
+      padding: 0 !important;
+      box-shadow: none !important;
+      min-width: 0 !important;
+      width: 100%;
+    }
+    .nav-dropdown-menu li a {
+      padding: 12px 0 12px 18px !important;
+      color: rgba(255,255,255,0.7) !important;
+      font-size: 14px !important;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-dropdown-menu li a:hover {
+      background: transparent !important;
+      color: #fff !important;
+    }
+  }
+
+
+  /* ── FUNDADOR — grid 2 columnas: historia | (equipo + pacto) ── */
+  .fundador-grid {
+    display: grid !important;
+    grid-template-columns: 1.25fr 1fr !important;
+    grid-template-areas:
+      "historia equipo"
+      "historia pacto" !important;
+    gap: 22px !important;
+    align-items: stretch;
+  }
+  .fundador-grid .fundador-block:nth-child(1) { grid-area: historia; }
+  .fundador-grid .fundador-block:nth-child(2) { grid-area: equipo; }
+  .fundador-grid .fundador-block:nth-child(3) { grid-area: pacto; }
+
+  /* Historia con tipografía más cómoda al ser larga */
+  .fundador-grid .fundador-block:nth-child(1) p {
+    font-size: 14.5px;
+    line-height: 1.68;
+  }
+
+  @media (max-width: 900px) {
+    .fundador-grid {
+      grid-template-columns: 1fr !important;
+      grid-template-areas: none !important;
+      gap: 14px !important;
+    }
+  }
+
+
+  /* ── HERO H1 — reducir tamaño general ── */
+  .hero-h1 {
+    font-size: 56px !important;
+    line-height: 1.08 !important;
+  }
+  @media (max-width: 1200px) {
+    .hero-h1 { font-size: 48px !important; }
+  }
+  @media (max-width: 900px) {
+    .hero-h1 { font-size: 38px !important; }
+  }
+  @media (max-width: 480px) {
+    .hero-h1 { font-size: 30px !important; }
+  }
+
+
+  /* ── HERO VISUAL — infografía del sub ── */
+  #hero .hero-inner { position: relative; }
+  .hero-visual {
+    position: absolute;
+    right: 6%;
+    top: 50%;
+    transform: translateY(-46%);
+    width: 360px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    pointer-events: none;
+    z-index: 2;
+  }
+  .hv-outcomes {
+    background: linear-gradient(135deg, rgba(194, 65, 12,0.18), rgba(194, 65, 12,0.05));
+    border: 1px solid rgba(194, 65, 12,0.5);
+    border-radius: 14px;
+    padding: 20px 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    backdrop-filter: blur(4px);
+  }
+  .hv-tag {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 10px;
+  }
+  .hv-tag-up { color: rgba(194, 65, 12,0.95); }
+  .hv-out-item {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.25;
+  }
+  .hv-method {
+    align-self: center;
+    background: var(--naranja);
+    color: #fff;
+    font-weight: 800;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 10px 22px;
+    border-radius: 30px;
+    box-shadow: 0 4px 18px rgba(194, 65, 12,0.25);
+    position: relative;
+  }
+  .hv-method::before,
+  .hv-method::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    width: 2px;
+    height: 14px;
+    background: rgba(194, 65, 12,0.55);
+    transform: translateX(-50%);
+  }
+  .hv-method::before { top: -16px; }
+  .hv-method::after  { bottom: -16px; }
+  .hv-foundation {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 14px;
+    padding: 20px 22px;
+    backdrop-filter: blur(4px);
+  }
+  .hv-found-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  .hv-found-item {
+    background: rgba(255,255,255,0.08);
+    border-radius: 8px;
+    padding: 14px 6px;
+    text-align: center;
+    font-size: 11.5px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.92);
+    letter-spacing: 0.4px;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  @media (max-width: 1300px) {
+    .hero-visual { width: 320px; right: 4%; }
+    .hv-out-item { font-size: 19px; }
+  }
+  @media (max-width: 1100px) {
+    .hero-visual { display: none; }
+  }
+
+
+  /* ── HERO BG R — reforzada ── */
+  #hero { position: relative; overflow: hidden; }
+  .hero-bg-r {
+    font-size: 55vw !important;
+    color: rgba(255, 255, 255, 0.085) !important;
+    right: -8vw !important;
+    bottom: -10vw !important;
+    font-family: 'Playfair Display', serif !important;
+    font-style: italic !important;
+    font-weight: 900 !important;
+    text-shadow: 0 0 100px rgba(194, 65, 12, 0.08);
+    transition: opacity .4s ease;
+  }
+  @media (max-width: 1200px) {
+    .hero-bg-r {
+      font-size: 60vw !important;
+      color: rgba(255, 255, 255, 0.07) !important;
+    }
+  }
+  @media (max-width: 900px) {
+    .hero-bg-r {
+      font-size: 70vw !important;
+      color: rgba(255, 255, 255, 0.06) !important;
+      right: -12vw !important;
+    }
+  }
+
+
+  /* ── HERO BG R — SVG del logo (sustituye texto) ── */
+  .hero-bg-r {
+    position: absolute !important;
+    right: -6vw !important;
+    bottom: -8vw !important;
+    width: 65vw !important;
+    height: auto !important;
+    color: rgba(255, 255, 255, 0.09) !important;
+    pointer-events: none !important;
+    user-select: none !important;
+    font-size: 0 !important;
+    font-family: inherit !important;
+    text-shadow: none !important;
+    z-index: 0 !important;
+    filter: drop-shadow(0 0 60px rgba(194, 65, 12, 0.06));
+  }
+  @media (max-width: 1200px) {
+    .hero-bg-r {
+      width: 72vw !important;
+      color: rgba(255, 255, 255, 0.075) !important;
+    }
+  }
+  @media (max-width: 900px) {
+    .hero-bg-r {
+      width: 85vw !important;
+      right: -12vw !important;
+      bottom: -15vw !important;
+      color: rgba(255, 255, 255, 0.06) !important;
+    }
+  }
+
+
+  /* ── SECTION BG R — watermark del logo en todas las secciones ── */
+  section { position: relative; overflow: hidden; }
+  .section-bg-r {
+    position: absolute;
+    right: -6vw;
+    bottom: -8vw;
+    width: 50vw;
+    height: auto;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+  }
+  /* Por defecto (secciones oscuras): R blanca semi-transparente */
+  .section-bg-r {
+    color: rgba(255, 255, 255, 0.045);
+  }
+  /* Secciones de fondo claro: R oscura semi-transparente */
+  #dolor .section-bg-r,
+  #metodo .section-bg-r,
+  #servicios .section-bg-r,
+  #accion .section-bg-r,
+  #partners .section-bg-r,
+  #diagnostico .section-bg-r {
+    color: rgba(26, 26, 140, 0.035);
+  }
+  /* Asegurar que el contenido quede por encima de la R */
+  section > *:not(.section-bg-r) { position: relative; z-index: 1; }
+  /* Mobile: R un poco más grande */
+  @media (max-width: 900px) {
+    .section-bg-r {
+      width: 70vw;
+      right: -12vw;
+      bottom: -12vw;
+    }
+  }
+
+
+  /* ── FUNDADOR cierre — foto más grande y visible ── */
+  .fundador-cierre-photo {
+    width: 180px !important;
+    height: 180px !important;
+    margin: 0 auto 28px !important;
+    border-radius: 50% !important;
+    overflow: hidden !important;
+    border: 4px solid var(--naranja) !important;
+    box-shadow: 0 12px 48px rgba(0,0,0,0.45),
+                0 0 0 8px rgba(255,255,255,0.04) !important;
+    background: #1A1A8C !important;
+    transition: transform .3s ease, box-shadow .3s ease;
+  }
+  .fundador-cierre-photo:hover {
+    transform: scale(1.03);
+    box-shadow: 0 16px 60px rgba(0,0,0,0.55),
+                0 0 0 8px rgba(194, 65, 12,0.15);
+  }
+  .fundador-cierre-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+  @media (max-width: 900px) {
+    .fundador-cierre-photo {
+      width: 150px !important;
+      height: 150px !important;
+    }
+  }
+
+
+  /* ── FUNDADOR — NUEVO LAYOUT: historia full, equipo|pacto debajo ── */
+  .historia-banner {
+    max-width: 1100px;
+    margin: 40px auto 0;
+    padding: 0;
+    position: relative;
+  }
+  .historia-banner-tag {
+    display: inline-block;
+    background: var(--naranja);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    padding: 9px 22px;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 14px rgba(194, 65, 12, 0.25);
+  }
+  .historia-banner::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.12);
+    margin-top: -1px;
+  }
+  .historia-content {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 14px;
+    padding: 34px 38px;
+    max-width: 1100px;
+    margin: 18px auto 30px;
+    backdrop-filter: blur(4px);
+  }
+  .historia-content p {
+    font-size: 14.5px;
+    line-height: 1.72;
+    color: rgba(255, 255, 255, 0.88);
+    margin-bottom: 16px;
+  }
+  .historia-content p:last-child { margin-bottom: 0; }
+  .historia-content strong { color: #fff; font-weight: 700; }
+  .historia-content em {
+    color: rgba(194, 65, 12, 0.95);
+    font-style: italic;
+  }
+  .equipo-pacto-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  @media (max-width: 900px) {
+    .equipo-pacto-grid {
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    .historia-content {
+      padding: 24px 22px;
+    }
+    .historia-content p {
+      font-size: 14px;
+      line-height: 1.7;
+    }
+  }
+  .fundador-grid { display: contents !important; }
+
+
+  /* ── HERO mobile v53: contenido distribuido + más aire entre bloques ── */
+  @media (max-width: 900px) {
+    #hero {
+      min-height: 100vh !important;
+      min-height: 100svh !important;
+      height: auto !important;
+      padding: 96px 5% 96px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: stretch !important;
+      justify-content: center !important;
+    }
+    .hero-inner {
+      padding-top: 0 !important;
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+      width: 100%;
+    }
+    .hero-pre {
+      margin-bottom: 22px !important;
+      line-height: 1.5 !important;
+    }
+    .hero-h1 {
+      margin-bottom: 22px !important;
+      line-height: 1.1 !important;
+    }
+    .hero-sub {
+      margin-bottom: 30px !important;
+      line-height: 1.75 !important;
+    }
+    .hero-quote {
+      margin-bottom: 32px !important;
+      padding: 18px 20px !important;
+      line-height: 1.65 !important;
+    }
+    .hero-btns {
+      margin-top: 14px !important;
+      margin-bottom: 8px !important;
+    }
+    .hero-btns a.btn-primary,
+    .hero-btns a.btn-secondary {
+      font-size: 16px !important;
+      padding: 18px 26px !important;
+      letter-spacing: 0.2px;
+      line-height: 1.25;
+    }
+    .btn-primary .btn-cursor {
+      width: 18px !important;
+      height: 18px !important;
+    }
+    .hero-bg-r {
+      bottom: -20vw !important;
+    }
+  }
+  @media (max-width: 480px) {
+    #hero {
+      padding: 88px 5% 88px !important;
+    }
+    .hero-pre {
+      margin-bottom: 20px !important;
+    }
+    .hero-h1 {
+      margin-bottom: 20px !important;
+    }
+    .hero-sub {
+      margin-bottom: 26px !important;
+    }
+    .hero-quote {
+      margin-bottom: 28px !important;
+      padding: 16px 18px !important;
+    }
+    .hero-btns a.btn-primary,
+    .hero-btns a.btn-secondary {
+      font-size: 15.5px !important;
+      padding: 16px 22px !important;
+    }
+  }
+
+
+  /* ── Floating Section Nav (mobile only) ── */
+  .section-nav-fab {
+    display: none;
+    position: fixed;
+    bottom: 28px;
+    left: 22px;
+    z-index: 90;
+    background: var(--naranja);
+    color: #fff;
+    border: none;
+    padding: 12px 18px 12px 14px;
+    border-radius: 32px;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    box-shadow: 0 8px 24px rgba(194, 65, 12, 0.4);
+    cursor: pointer;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Onest', sans-serif;
+  }
+  .section-nav-fab svg { flex-shrink: 0; }
+  @media (max-width: 1024px) {
+    .section-nav-fab { display: inline-flex; }
+  }
+  @media (max-width: 480px) {
+    .section-nav-fab {
+      bottom: 22px;
+      left: 16px;
+      padding: 10px 14px 10px 12px;
+      font-size: 12px;
+    }
+  }
+
+  .section-nav-sheet {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .25s ease;
+  }
+  .section-nav-sheet.open {
+    pointer-events: auto;
+    opacity: 1;
+  }
+  .section-nav-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(13, 13, 92, 0.7);
+    backdrop-filter: blur(8px);
+  }
+  .section-nav-panel {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, #1A1A8C 0%, #0D0D5C 100%);
+    border-top: 3px solid var(--naranja);
+    border-radius: 20px 20px 0 0;
+    padding: 0;
+    max-height: 80vh;
+    overflow-y: auto;
+    transform: translateY(100%);
+    transition: transform .3s ease;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.4);
+  }
+  .section-nav-sheet.open .section-nav-panel {
+    transform: translateY(0);
+  }
+  .section-nav-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 22px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .section-nav-close {
+    background: rgba(255, 255, 255, 0.08);
+    border: none;
+    color: #fff;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+  .section-nav-close:active { background: rgba(255, 255, 255, 0.15); }
+  .section-nav-list {
+    list-style: none;
+    padding: 8px 0 16px;
+    margin: 0;
+  }
+  .section-nav-list li a {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 22px;
+    color: rgba(255, 255, 255, 0.92);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  .section-nav-list li:last-child a { border-bottom: none; }
+  .section-nav-list li a::before {
+    content: attr(data-icon);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: rgba(194, 65, 12, 0.15);
+    color: var(--naranja);
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+  .section-nav-list li a:active {
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+
+  /* ── HERO TAGS ── */
+  .hero-tags {
+    display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0 28px;
+  }
+  .hero-tag {
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.22);
+    color: rgba(255,255,255,0.9); font-size: 12px; font-weight: 700;
+    padding: 6px 14px; border-radius: 999px; letter-spacing: 0.3px;
+  }
+
+  /* ── CTA STRIP entre secciones ── */
+  .cta-strip {
+    text-align: center; padding: 48px 5%;
+  }
+  .cta-strip p {
+    color: var(--gris-suave); font-size: 15px; margin-bottom: 20px;
+  }
+
+  /* ── FAQ ── */
+  #faq { background: var(--gris-fondo); }
+  .faq-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+    gap: 16px; max-width: 1100px; margin: 40px auto 0;
+  }
+  .faq-item {
+    background: #fff; border-radius: var(--radius); padding: 24px 26px;
+    border-left: 4px solid var(--azul);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  }
+  .faq-q {
+    font-size: 15px; font-weight: 800; color: var(--azul);
+    margin-bottom: 10px; line-height: 1.3;
+  }
+  .faq-a {
+    font-size: 14px; color: var(--gris-suave); line-height: 1.7;
+  }
+  .faq-a strong { color: var(--gris-texto); }
+
+  /* ── AUTHORITY BAND HTML ── */
+  .authority-band {
+    background: var(--azul); padding: 72px 5%;
+    border-bottom: 4px solid var(--naranja);
+  }
+  .authority-band .auth-eyebrow {
+    text-align: center; color: rgba(255,255,255,0.55); font-size: 13px;
+    letter-spacing: 3px; text-transform: uppercase; font-weight: 700;
+    margin-bottom: 48px;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">
+    <svg class="nav-logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 3 30 30" role="img" aria-label="ResetNess">
+      <g fill="#fff">
+        <path d="M29.49,28.86l-3.64-5a16.67,16.67,0,0,0-2.18-2.47v-.12c3.51-1,5.93-3.51,5.93-7.6,0-5.59-4.32-8.47-10-8.47H7.14a.7.7,0,0,0-.69.7V9.56h13c2.94,0,5.07,1.27,5.07,4.09s-2.19,4-5.07,4H7.64a1.19,1.19,0,0,0-1.19,1.2V29.26a.74.74,0,0,0,.69.69h3.68a.74.74,0,0,0,.69-.69V21.77h6.74l5.65,7.78a1.08,1.08,0,0,0,.8.4h4.73c.34,0,.46-.11.46-.35S29.83,29.32,29.49,28.86Z"/>
+        <circle cx="2.2" cy="13.62" r="2.2"/>
+      </g>
+    </svg>
+    <svg class="nav-logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 254.41 57.73" role="img" aria-label="ResetNess - Frena. Repensa. Decidi mejor."><defs><style>.cls-1{fill:#fff;}
+  /* ── HERO TAGS ── */
+  .hero-tags {
+    display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0 28px;
+  }
+  .hero-tag {
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.22);
+    color: rgba(255,255,255,0.9); font-size: 12px; font-weight: 700;
+    padding: 6px 14px; border-radius: 999px; letter-spacing: 0.3px;
+  }
+
+  /* ── CTA STRIP entre secciones ── */
+  .cta-strip {
+    text-align: center; padding: 48px 5%;
+  }
+  .cta-strip p {
+    color: var(--gris-suave); font-size: 15px; margin-bottom: 20px;
+  }
+
+  /* ── FAQ ── */
+  #faq { background: var(--gris-fondo); }
+  .faq-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+    gap: 16px; max-width: 1100px; margin: 40px auto 0;
+  }
+  .faq-item {
+    background: #fff; border-radius: var(--radius); padding: 24px 26px;
+    border-left: 4px solid var(--azul);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  }
+  .faq-q {
+    font-size: 15px; font-weight: 800; color: var(--azul);
+    margin-bottom: 10px; line-height: 1.3;
+  }
+  .faq-a {
+    font-size: 14px; color: var(--gris-suave); line-height: 1.7;
+  }
+  .faq-a strong { color: var(--gris-texto); }
+
+  /* ── AUTHORITY BAND HTML ── */
+  .authority-band {
+    background: var(--azul); padding: 72px 5%;
+    border-bottom: 4px solid var(--naranja);
+  }
+  .authority-band .auth-eyebrow {
+    text-align: center; color: rgba(255,255,255,0.55); font-size: 13px;
+    letter-spacing: 3px; text-transform: uppercase; font-weight: 700;
+    margin-bottom: 48px;
+  }
+
+</style></defs><g id="Capa_2" data-name="Capa 2"><g id="Capa_1-2" data-name="Capa 1"><path class="cls-1" d="M58.92,24.37a1.14,1.14,0,0,1,.4.92c0,.57-.29.8-.69,1.21a14.78,14.78,0,0,1-10.72,4c-7.14,0-13.53-4.26-13.53-12.39,0-7,5-12.38,13.07-12.38,8.3,0,12.27,5,12.27,10.89a28.48,28.48,0,0,1-.17,2.93h-20c.46,4,4,6.57,8.35,6.57a10.57,10.57,0,0,0,7.78-2.76,1.29,1.29,0,0,1,1.09-.58,1,1,0,0,1,.93.4ZM39.68,15.78H54.6c-.29-3.86-2.88-5.64-7.15-5.64C43.65,10.14,40.31,11.92,39.68,15.78Z"/><path class="cls-1" d="M68.82,22.06c.64,0,.92.23.92.87,0,2,1.79,3.22,6.86,3.22,4.32,0,5.59-1.67,5.59-3.34,0-1.27-.93-2.07-4-2.42l-5.64-.58c-5.88-.57-7.72-2.76-7.72-6.33s3.46-7.72,10.66-7.72c7.77,0,10.65,3.4,10.65,7.2a.66.66,0,0,1-.69.69H82.07a1.1,1.1,0,0,1-1.09-1c-.29-1.56-1.67-2.48-5.53-2.48-4.32,0-5.59,1.84-5.59,3.34,0,1.09.58,1.84,3,2.07l5.52.58c7.26.75,8.87,3.17,8.87,6.62s-2.7,7.78-10.65,7.78c-8.12,0-11.81-2.94-11.81-7.6,0-.58.29-.87.92-.87Z"/><path class="cls-1" d="M116.86,24.37a1.12,1.12,0,0,1,.4.92c0,.57-.28.8-.69,1.21a14.76,14.76,0,0,1-10.71,4c-7.14,0-13.54-4.26-13.54-12.39,0-7,5-12.38,13.08-12.38,8.29,0,12.27,5,12.27,10.89a26.92,26.92,0,0,1-.18,2.93h-20c.46,4,4,6.57,8.35,6.57a10.53,10.53,0,0,0,7.77-2.76,1.31,1.31,0,0,1,1.1-.58,1,1,0,0,1,.92.4ZM97.62,15.78h14.92c-.29-3.86-2.88-5.64-7.14-5.64C101.6,10.14,98.26,11.92,97.62,15.78Z"/><path class="cls-1" d="M168.64,5.88V29.26A.69.69,0,0,1,168,30h-3L151.42,16a34.22,34.22,0,0,1-2.48-2.93h-.17v3.18c0,7.64-.12,15.23-12,15.23-3.39,0-7-.62-9.42-2.5l-.41-.33c-1.64-1.41-2.59-3.67-2.59-7V10.72h-3.11a.82.82,0,0,1-.81-.81V7.14a.81.81,0,0,1,.81-.8h3.11V1a1,1,0,0,1,1-1h3.11a1,1,0,0,1,1,1V6.34h7.83a.81.81,0,0,1,.81.8V9.91a.82.82,0,0,1-.81.81h-7.83V21.66c0,1.87.69,6.16,7.46,6.16,7.51,0,7-6.4,7-9.17V5.88a.7.7,0,0,1,.69-.7h2.88l13,13.37a31.92,31.92,0,0,1,2.88,3.4h.23V5.88a.75.75,0,0,1,.7-.7H168A.7.7,0,0,1,168.64,5.88Z"/><path class="cls-1" d="M199.11,24.37a1.12,1.12,0,0,1,.41.92c0,.57-.29.8-.7,1.21a14.74,14.74,0,0,1-10.71,4c-7.14,0-13.54-4.26-13.54-12.39,0-7,5-12.38,13.08-12.38,8.29,0,12.27,5,12.27,10.89a28.48,28.48,0,0,1-.17,2.93h-20c.46,4,4,6.57,8.35,6.57a10.57,10.57,0,0,0,7.78-2.76,1.28,1.28,0,0,1,1.09-.58,1,1,0,0,1,.92.4Zm-19.24-8.59h14.92c-.29-3.86-2.88-5.64-7.14-5.64C183.85,10.14,180.51,11.92,179.87,15.78Z"/><path class="cls-1" d="M209,22.06c.63,0,.92.23.92.87,0,2,1.79,3.22,6.85,3.22,4.32,0,5.59-1.67,5.59-3.34,0-1.27-.92-2.07-4-2.42l-5.64-.58c-5.88-.57-7.72-2.76-7.72-6.33s3.45-7.72,10.65-7.72c7.78,0,10.66,3.4,10.66,7.2a.66.66,0,0,1-.69.69h-3.34a1.11,1.11,0,0,1-1.1-1c-.29-1.56-1.67-2.48-5.53-2.48-4.32,0-5.58,1.84-5.58,3.34,0,1.09.57,1.84,3,2.07l5.53.58c7.26.75,8.87,3.17,8.87,6.62s-2.71,7.78-10.66,7.78c-8.12,0-11.8-2.94-11.8-7.6,0-.58.28-.87.92-.87Z"/><path class="cls-1" d="M236,22.06c.63,0,.92.23.92.87,0,2,1.78,3.22,6.85,3.22,4.32,0,5.59-1.67,5.59-3.34,0-1.27-.92-2.07-4-2.42l-5.65-.58c-5.87-.57-7.72-2.76-7.72-6.33s3.46-7.72,10.66-7.72c7.78,0,10.66,3.4,10.66,7.2a.66.66,0,0,1-.7.69h-3.34a1.11,1.11,0,0,1-1.09-1c-.29-1.56-1.67-2.48-5.53-2.48-4.32,0-5.59,1.84-5.59,3.34,0,1.09.58,1.84,3,2.07l5.53.58c7.25.75,8.87,3.17,8.87,6.62s-2.71,7.78-10.66,7.78c-8.12,0-11.81-2.94-11.81-7.6,0-.58.29-.87.93-.87Z"/><path class="cls-1" d="M29.49,28.86l-3.64-5a16.67,16.67,0,0,0-2.18-2.47v-.12c3.51-1,5.93-3.51,5.93-7.6,0-5.59-4.32-8.47-10-8.47H7.14a.7.7,0,0,0-.69.7V9.56h13c2.94,0,5.07,1.27,5.07,4.09s-2.19,4-5.07,4H7.64a1.19,1.19,0,0,0-1.19,1.2V29.26a.74.74,0,0,0,.69.69h3.68a.74.74,0,0,0,.69-.69V21.77h6.74l5.65,7.78a1.08,1.08,0,0,0,.8.4h4.73c.34,0,.46-.11.46-.35S29.83,29.32,29.49,28.86Z"/><circle class="cls-1" cx="2.2" cy="13.62" r="2.2"/><path class="cls-1" d="M7.77,54.15l.07,3.44H6.45l.08-3.32-.08-7.7H7.86Z"/><path class="cls-1" d="M20.55,54.36l0,3.23H19.14l-5.71-8.82h-.09v8.82H12.1l.06-3.27,0-7.75h1.43l5.69,8.82h.12V46.63l1.29-.1Z"/><path class="cls-1" d="M31.09,46.7,31,47.77l-1.93-.1H28l-.06,6.48L28,57.59h-1.4l.11-3.32-.09-6.6H25.45l-2,.1-.08-.14.1-1.06H31Z"/><path class="cls-1" d="M40.38,56.52l-.1,1.07H34.09l.08-3.32-.08-7.7H40.3l.06.13-.1,1.07-2.6-.05-2.18,0,0,3.61,2.06,0,1.82,0,.11.12-.13,1.06-1.92,0-2,0,0,1.63.05,2.29,2.19,0,2.65-.07Z"/><path class="cls-1" d="M48.91,56.56l-.12,1H43.36l.08-3.32-.08-7.7h1.41l-.09,7.58,0,2.29h4.08Z"/><path class="cls-1" d="M52.92,54.15,53,57.59H51.6l.08-3.32-.08-7.7H53Z"/><path class="cls-1" d="M64.6,47.25l-.28,1.31-.17,0a6.7,6.7,0,0,0-1.52-.73,4.81,4.81,0,0,0-1.47-.23q-3.73,0-3.73,4.61a5.09,5.09,0,0,0,.86,3.26,3.33,3.33,0,0,0,2.7,1,6.45,6.45,0,0,0,1-.08,11.48,11.48,0,0,0,1.26-.33l0-1.29,0-1.65,1.29-.11,0,1.57.06,2.41a18.4,18.4,0,0,1-2,.5,9.77,9.77,0,0,1-1.67.15,4.66,4.66,0,0,1-3.69-1.39,5.9,5.9,0,0,1-1.23-4A6.08,6.08,0,0,1,57.39,48a5.18,5.18,0,0,1,4-1.49A7,7,0,0,1,64.6,47.25Z"/><path class="cls-1" d="M74.59,56.52l-.1,1.07H68.3l.08-3.32-.08-7.7h6.21l.06.13-.1,1.07-2.6-.05-2.18,0,0,3.61,2.07,0,1.82,0,.11.12-.13,1.06-1.92,0-2,0,0,1.63,0,2.29,2.19,0,2.65-.07Z"/><path class="cls-1" d="M86.08,54.36l0,3.23H84.67L79,48.77h-.09v8.82H77.64l0-3.27,0-7.75h1.43l5.69,8.82h.12V46.63l1.29-.1Z"/><path class="cls-1" d="M97.05,47.3l-.27,1.26-.16,0a4,4,0,0,0-2.64-1,3,3,0,0,0-2.52,1.13,5.31,5.31,0,0,0-.87,3.29,5.47,5.47,0,0,0,.87,3.34,2.93,2.93,0,0,0,2.48,1.15,4.42,4.42,0,0,0,1.51-.27,5,5,0,0,0,1.36-.78l.18.09-.12,1.31a6.27,6.27,0,0,1-3.05.82,4.27,4.27,0,0,1-3.44-1.44,6.16,6.16,0,0,1-1.22-4.1A6.25,6.25,0,0,1,90.43,48,4.49,4.49,0,0,1,94,46.48,5.38,5.38,0,0,1,97.05,47.3Z"/><path class="cls-1" d="M101.41,54.15l.06,3.44h-1.39l.09-3.32-.09-7.7h1.41Z"/><path class="cls-1" d="M113.69,57.59h-1.41l-.26-1.1-.62-1.89-2.48-.05-2.23.05L106,56.42l-.27,1.17h-1.38l4-11H110ZM111,53.43,109.23,48h-.12l-2,5.44,1.92,0Z"/><path class="cls-1" d="M128.17,47.84a5.41,5.41,0,0,1,1.25,3.85,6.6,6.6,0,0,1-1.35,4.46,4.93,4.93,0,0,1-3.91,1.54l-1.71,0-1.87-.08h0l.08-3.32-.08-7.7h0l4-.07A4.69,4.69,0,0,1,128.17,47.84Zm-1.09,7.56A5.35,5.35,0,0,0,128,52c0-2.89-1.18-4.33-3.56-4.33-.72,0-1.55,0-2.49.07l-.07,6.43,0,2.29c.36,0,.78.06,1.28.08l1.16,0A3.31,3.31,0,0,0,127.08,55.4Z"/><path class="cls-1" d="M139,56.52l-.1,1.07h-6.19l.09-3.32-.09-7.7h6.21l.07.13-.11,1.07-2.59-.05-2.19,0,0,3.61,2.06,0,1.83,0,.1.12-.12,1.06-1.93,0-2,0,0,1.63.05,2.29,2.19,0,2.65-.07Z"/><path class="cls-1" d="M154.36,54.36l0,3.23H153l-5.71-8.82h-.08l0,5.19,0,3.63h-1.24l.05-3.27,0-7.75h1.42l5.7,8.82h.12l0-8.76,1.29-.1Z"/><path class="cls-1" d="M165,56.52l-.11,1.07h-6.19l.09-3.32-.09-7.7h6.21l.07.13-.1,1.07-2.6-.05-2.19,0,0,3.61,2.06,0,1.83,0,.1.12-.12,1.06-1.93,0-2,0v1.63l.05,2.29,2.18,0,2.65-.07Z"/><path class="cls-1" d="M175.38,47.25l-.27,1.31-.18,0a6.5,6.5,0,0,0-1.52-.73,4.71,4.71,0,0,0-1.47-.23q-3.74,0-3.73,4.61a5,5,0,0,0,.87,3.26,3.31,3.31,0,0,0,2.69,1,6.45,6.45,0,0,0,1-.08,11.55,11.55,0,0,0,1.27-.33l0-1.29,0-1.65,1.29-.11,0,1.57.07,2.41a19.14,19.14,0,0,1-2,.5,9.68,9.68,0,0,1-1.67.15A4.66,4.66,0,0,1,168,56.32a5.9,5.9,0,0,1-1.23-4,6.08,6.08,0,0,1,1.4-4.32,5.17,5.17,0,0,1,4-1.49A7,7,0,0,1,175.38,47.25Z"/><path class="cls-1" d="M186.55,47.86a5.89,5.89,0,0,1,1.22,4,6.56,6.56,0,0,1-1.29,4.35,4.57,4.57,0,0,1-3.68,1.52,4.23,4.23,0,0,1-3.45-1.45,6.2,6.2,0,0,1-1.22-4.11,6.26,6.26,0,0,1,1.29-4.23,4.58,4.58,0,0,1,3.65-1.48A4.36,4.36,0,0,1,186.55,47.86Zm-7,4.16a5.88,5.88,0,0,0,.84,3.49,2.9,2.9,0,0,0,2.52,1.13c2.29,0,3.44-1.5,3.44-4.52a5.66,5.66,0,0,0-.84-3.42A2.92,2.92,0,0,0,183,47.58Q179.55,47.58,179.54,52Z"/><path class="cls-1" d="M198,47.3l-.27,1.26-.16,0a4,4,0,0,0-2.65-1,3,3,0,0,0-2.51,1.13,5.31,5.31,0,0,0-.87,3.29,5.47,5.47,0,0,0,.87,3.34,2.93,2.93,0,0,0,2.48,1.15,4.36,4.36,0,0,0,1.5-.27,5,5,0,0,0,1.37-.78l.17.09-.12,1.31a6.2,6.2,0,0,1-3,.82,4.26,4.26,0,0,1-3.44-1.44,6.16,6.16,0,0,1-1.22-4.1A6.25,6.25,0,0,1,191.36,48,4.49,4.49,0,0,1,195,46.48,5.41,5.41,0,0,1,198,47.3Z"/><path class="cls-1" d="M202.33,54.15l.07,3.44H201l.09-3.32-.09-7.7h1.41Z"/><path class="cls-1" d="M213.83,47.86a5.89,5.89,0,0,1,1.21,4,6.56,6.56,0,0,1-1.29,4.35,4.56,4.56,0,0,1-3.68,1.52,4.21,4.21,0,0,1-3.44-1.45,6.2,6.2,0,0,1-1.22-4.11,6.31,6.31,0,0,1,1.28-4.23,4.62,4.62,0,0,1,3.66-1.48A4.37,4.37,0,0,1,213.83,47.86Zm-7,4.16a5.88,5.88,0,0,0,.84,3.49,2.9,2.9,0,0,0,2.52,1.13c2.29,0,3.44-1.5,3.44-4.52a5.66,5.66,0,0,0-.84-3.42,2.92,2.92,0,0,0-2.52-1.12Q206.83,47.58,206.82,52Z"/><path class="cls-1" d="M223.76,47l-.22,1.33-.24.07a4.1,4.1,0,0,0-1.06-.59,3.34,3.34,0,0,0-1.11-.2,2.22,2.22,0,0,0-1.11.26,1.87,1.87,0,0,0-.72.67,1.59,1.59,0,0,0-.25.86,1.24,1.24,0,0,0,.29.81,2.36,2.36,0,0,0,.71.61c.29.18.68.38,1.17.62a13.86,13.86,0,0,1,1.5.8,3.76,3.76,0,0,1,1,.94,2.32,2.32,0,0,1,.4,1.38,2.86,2.86,0,0,1-.46,1.58,3.35,3.35,0,0,1-1.31,1.15,4.13,4.13,0,0,1-1.93.43,6.2,6.2,0,0,1-1.5-.2,5.77,5.77,0,0,1-1.45-.57l.17-1.41.19-.09a3.93,3.93,0,0,0,1.33.87,3.83,3.83,0,0,0,1.4.28,2.42,2.42,0,0,0,1.16-.26,1.93,1.93,0,0,0,.78-.68,1.77,1.77,0,0,0,.26-.91,1.42,1.42,0,0,0-.55-1.17,8.1,8.1,0,0,0-1.67-1c-.6-.3-1.09-.57-1.46-.8a3.39,3.39,0,0,1-.94-.91,2.27,2.27,0,0,1-.4-1.37,2.76,2.76,0,0,1,.46-1.55,3.07,3.07,0,0,1,1.27-1.11,4.15,4.15,0,0,1,1.87-.4A6.52,6.52,0,0,1,223.76,47Z"/></g></g></svg>
+  </a>
+  <div class="nav-location" aria-label="Ubicación: Córdoba, Argentina">
+    <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true"><path fill="currentColor" d="M12 0C7.31 0 3.5 3.81 3.5 8.5c0 6.38 7.74 14.74 8.07 15.1.23.25.62.25.85 0 .33-.36 8.08-8.72 8.08-15.1C20.5 3.81 16.69 0 12 0zm0 12.5c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/></svg>
+    <span>Córdoba, AR</span>
+  </div>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <ul id="nav-menu">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#dolor">El problema</a></li>
+    <li class="nav-dropdown">
+      <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">Soluciones <span class="nav-dd-caret" aria-hidden="true">▾</span></button>
+      <ul class="nav-dropdown-menu">
+        <li><a href="#metodo">Método probado</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+      </ul>
+    </li>
+    <li><a href="#accion">Casos de éxito</a></li>
+    <li class="nav-dropdown">
+      <button type="button" class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">Nosotros <span class="nav-dd-caret" aria-hidden="true">▾</span></button>
+      <ul class="nav-dropdown-menu">
+        <li><a href="#quien">Nuestra cultura</a></li>
+        <li><a href="#fundador">Quién está detrás</a></li>
+      </ul>
+    </li>
+    <li><a href="#faq">Preguntas frecuentes</a></li>
+    <li class="nav-item-tip">
+      <a href="#diagnostico" class="nav-cta">Autodiagnóstico →</a>
+      <div class="nav-tip" role="tooltip">
+        <strong class="nav-tip-h">¿Qué está frenando tu PyME? Descubrilo en 5 min.</strong>
+        <p class="nav-tip-p">5 preguntas · Score honesto · <em>Sin compromiso.</em></p>
+      </div>
+    </li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <svg class="hero-bg-r" viewBox="0 3 30 30" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <g fill="currentColor">
+      <path d="M29.49,28.86l-3.64-5a16.67,16.67,0,0,0-2.18-2.47v-.12c3.51-1,5.93-3.51,5.93-7.6,0-5.59-4.32-8.47-10-8.47H7.14a.7.7,0,0,0-.69.7V9.56h13c2.94,0,5.07,1.27,5.07,4.09s-2.19,4-5.07,4H7.64a1.19,1.19,0,0,0-1.19,1.2V29.26a.74.74,0,0,0,.69.69h3.68a.74.74,0,0,0,.69-.69V21.77h6.74l5.65,7.78a1.08,1.08,0,0,0,.8.4h4.73c.34,0,.46-.11.46-.35S29.83,29.32,29.49,28.86Z"/>
+      <circle cx="2.2" cy="13.62" r="2.2"/>
+    </g>
+  </svg>
+  <div class="hero-inner">
+    <div class="hero-pre">Consultoría operativa · PyMEs · Retail · Consumo masivo</div>
+    <h1 class="hero-h1">Tu PyME creció.<br>La estructura, <em>todavía no.</em></h1>
+    <p class="hero-sub">Ayudamos a PyMEs de retail y consumo masivo que operan en caos a recuperar <strong>rentabilidad</strong>, reducir la <strong>dependencia del dueño</strong> y escalar con estructura real. Sin filosofía de management. Con ejecución concreta.</p>
+    <div class="hero-tags">
+      <span class="hero-tag">↑ Margen</span>
+      <span class="hero-tag">↓ Dependencia del dueño</span>
+      <span class="hero-tag">↑ Previsibilidad</span>
+      <span class="hero-tag">↑ Escalabilidad</span>
+    </div>
+    <div class="hero-btns">
+      <a href="#diagnostico" class="btn-primary">Quiero detectar mi cuello de botella →</a>
+      <a href="https://wa.me/5493512215877?text=Hola%20Dar%C3%ADo,%20quiero%20agendar%20una%20conversaci%C3%B3n%20sobre%20ResetNess." target="_blank" class="btn-secondary">Agendar conversación</a>
+    </div>
+    </div>
+</section>
+
+
+<!-- AUTHORITY BAND -->
+<div class="authority-band">
+  <p class="auth-eyebrow">Trayectoria que respalda cada recomendación</p>
+  <div class="auth-grid">
+    <div class="auth-item">
+      <div class="auth-num">+20</div>
+      <div class="auth-label">años en operaciones de Retail &amp; Consumo masivo<span class="auth-sub">Carrefour Argentina · Maxi Carrefour B2B</span></div>
+    </div>
+<div class="auth-item">
+      <div class="auth-num">+400</div>
+      <div class="auth-label">colaboradores liderados<span class="auth-sub">equipos comerciales y operativos</span></div>
+    </div>
+    <div class="auth-item">
+      <div class="auth-num">4</div>
+      <div class="auth-label">sectores de expertise<span class="auth-sub">Retail · Consumo masivo · Industrial · Servicios de consultoría</span></div>
+    </div>
+    <div class="auth-item">
+      <div class="auth-num">4</div>
+      <div class="auth-label">empresas PyME transformadas<span class="auth-sub">como consultor independiente</span></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- DOLOR -->
+<section id="dolor">
+  <svg class="section-bg-r" viewBox="0 3 30 30" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <g fill="currentColor">
+      <path d="M29.49,28.86l-3.64-5a16.67,16.67,0,0,0-2.18-2.47v-.12c3.51-1,5.93-3.51,5.93-7.6,0-5.59-4.32-8.47-10-8.47H7.14a.7.7,0,0,0-.69.7V9.56h13c2.94,0,5.07,1.27,5.07,4.09s-2.19,4-5.07,4H7.64a1.19,1.19,0,0,0-1.19,1.2V29.26a.74.74,0,0,0,.69.69h3.68a.74.74,0,0,0,.69-.69V21.77h6.74l5.65,7.78a1.08,1.08,0,0,0,.8.4h4.73c.34,0,.46-.11.46-.35S29.83,29.32,29.49,28.86Z"/>
+      <circle cx="2.2" cy="13.62" r="2.2"/>
+    </g>
+  </svg>
+
+  <div class="section-label reveal">El problema que reconocés</div>
+  <h2 class="section-title reveal">¿Te suena alguna<br>de estas situaciones?</h2>
+  <p class="section-sub reveal">Empezá por lo que ves todos los días. Después mirá lo que sentís cuando nadie pregunta.</p>
+
+  <div class="dolor-layer-label reveal">Lo que ves.</div>
+  <div class="dolor-sintomas reveal">
+    <div class="sintoma"><strong>Merma</strong> que no se explica del todo.</div>
+    <div class="sintoma"><strong>Rotación</strong> de personal que vuelve cada seis meses.</div>
+    <div class="sintoma"><strong>Productividad</strong> que no crece aunque sumes gente.</div>
+    <div class="sintoma"><strong>Margen</strong> que se evapora sin diagnóstico claro.</div>
+    <div class="sintoma"><strong>Quiebres de stock</strong> que cuestan ventas todos los meses.</div>
+    <div class="sintoma"><strong>Un dueño</strong> que no puede salir de la operación sin que algo se caiga.</div>
+  </div>
+
+  <div class="dolor-layer-label reveal">Lo que sentís.</div>
+  <div class="dolor-grid">
+    <div class="dolor-card reveal">
+      <h3>El crecimiento se convirtió en caos</h3>
+      <p>"Abrimos nuevas sucursales pero el desorden creció más rápido que las ventas."</p>
+    </div>
+    <div class="dolor-card reveal">
+      <h3>El equipo trabaja pero no produce resultados</h3>
+      <p>"La gente está ocupada todo el día. Pero la productividad no crece y el margen tampoco."</p>
+    </div>
+    <div class="dolor-card reveal">
+      <h3>Todo depende de vos</h3>
+      <p>"Soy el cuello de botella de mi propia empresa. No puedo pensar en estrategia porque estoy apagando incendios."</p>
+    </div>
+    <div class="dolor-card reveal">
+      <h3>Sabés que algo hay que cambiar, pero no sabés qué</h3>
+      <p>"Siento que algo no cierra. Pero no tengo claridad de dónde está el problema real."</p>
+    </div>
+  </div>
+  <p class="section-close reveal">Operar así tiene un costo real: <strong>margen que se evapora, dueño que no puede delegar, crecimiento que se traba.</strong> Tiene solución.</p>
+  <div class="cta-strip" style="background:var(--gris-fondo)">
+    <p>Detectá en 5 minutos dónde está el cuello de botella real de tu empresa.</p>
+    <a href="#diagnostico" class="btn-primary" style="display:inline-flex;align-items:center;gap:6px">Quiero detectar mi cuello de botella →</a>
+  </div>
+</section>
+
+<!-- CÓMO TRABAJAMOS — DIAGNÓSTICO + MÉTODO + RESULTADO -->
+<section id="metodo">
+  <svg class="section-bg-r" viewBox="0 3 30 30" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <g fill="currentColor">
+      <path d="M29.49,28.86l-3.64-5a16.67,16.67,0,0,0-2.18-2.47v-.12c3.51-1,5.93-3.51,5.93-7.6,0-5.59-4.32-8.47-10-8.47H7.14a.7.7,0,0,0-.69.7V9.56h13c2.94,0,5.07,1.27,5.07,4.09s-2.19,4-5.07,4H7.64a1.19,1.19,0,0,0-1.19,1.2V29.26a.74.74,0,0,0,.69.69h3.68a.74.74,0,0,0,.69-.69V21.77h6.74l5.65,7.78a1.08,1.08,0,0,0,.8.4h4.73c.34,0,.46-.11.46-.35S29.83,29.32,29.49,28.86Z"/>
+      <circle cx="2.2" cy="13.62" r="2.2"/>
+    </g>
+  </svg>
+
+  <div class="section-label reveal">Cómo trabajamos</div>
+  <h2 class="section-title reveal">Del diagnóstico al resultado,<br>en tres fases visibles.</h2>
+  <p class="section-sub reveal">Sin atajos, sin promesas vacías. Un proceso transparente con entregables claros en cada fase.</p>
+
+  <!-- Qué miramos -->
+  <div class="metodo-mini-band reveal">
+    <span class="mini-band-tag">Qué miramos</span>
+    <span class="mini-band-text">Los síntomas operativos son visibles, pero la causa siempre está en tres capas:</span>
+  </div>
+  <div class="metodo-capas reveal">
+    <div class="capa-chip">
+      <strong>Cultura</strong>
+      <span>Lo que el equipo hace cuando no estás mirando.</span>
+    </div>
+    <div class="capa-chip">
+      <strong>Organización</strong>
+      <span>Quién decide qué. Quién responde por qué.</span>
+    </div>
+    <div class="capa-chip">
+      <strong>Gobierno</strong>
+      <span>Cómo se toman las decisiones que importan.</span>
+    </div>
+  </div>
+
+  <!-- Flujo de trabajo -->
+  <div class="metodo-mini-band reveal">
+    <span class="mini-band-tag">El flujo</span>
+    <span class="mini-band-text">Tres fases secuenciales con entregables concretos:</span>
+  </div>
+  <div class="metodo-flow reveal">
+    <div class="flow-step">
+      <div class="flow-num">01</div>
+      <div class="flow-phase">VER</div>
+      <div class="flow-time">Semanas 1 a 2</div>
+      <ul class="flow-list">
+        <li>Diagnóstico de cultura, liderazgo, procesos y datos</li>
+        <li>Mapping de cuellos de botella reales</li>
+        <li>Entrevistas con equipo clave</li>
+      </ul>
+      <div class="flow-entrega"><span>Entregable:</span> Informe de situación + mapa de causas</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">
+      <div class="flow-num">02</div>
+      <div class="flow-phase">ORDENAR</div>
+      <div class="flow-time">Semanas 3 a 8</div>
+      <ul class="flow-list">
+        <li>Diseño de estructura, roles y procesos</li>
+        <li>Acuerdos con el equipo</li>
+        <li>Definición de métricas clave</li>
+      </ul>
+      <div class="flow-entrega"><span>Entregable:</span> Plan de acción accionable</div>
+    </div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">
+      <div class="flow-num">03</div>
+      <div class="flow-phase">SOSTENER</div>
+      <div class="flow-time">Semanas 9 a 24</div>
+      <ul class="flow-list">
+        <li>Acompañamiento semana a semana</li>
+        <li>Seguimiento de métricas</li>
+        <li>Ajustes y aprendizaje continuo</li>
+      </ul>
+      <div class="flow-entrega"><span>Entregable:</span> Cambios que se sostienen sin nosotros</div>
+    </div>
+  </div>
+
+  <!-- Qué obtenés -->
+  <div class="metodo-mini-band reveal">
+    <span class="mini-band-tag">Qué obtenés</span>
+    <span class="mini-band-text">El resultado del flujo, en tres dimensiones medibles:</span>
+  </div>
+  <div class="metodo-resultados reveal">
+    <div class="resultado-chip">
+      <strong>Rentabilidad</strong>
+      <span>Margen visible · merma bajo control · productividad sostenida</span>
+    </div>
+    <div class="resultado-chip">
+      <strong>Control</strong>
+      <span>Una empresa que funciona sin vos como cuello de botella</span>
+    </div>
+    <div class="resultado-chip">
+      <strong>Crecimiento</strong>
+      <span>Sumar sucursales o equipos sin operar al límite</span>
+    </div>
+  </div>
+
+  <p class="section-close reveal"><strong>Rentabilidad, control y crecimiento</strong> — no como conceptos, sino como consecuencias de haber ejecutado el proceso correctamente.</p>
+  <div class="cta-strip" style="background:#fff">
+    <p>¿Querés ver cómo aplica esto a tu empresa?</p>
+    <a href="https://wa.me/5493512215877?text=Hola%20Dar%C3%ADo,%20quiero%20agendar%20una%20conversaci%C3%B3n%20sobre%20ResetNess." target="_blank" class="btn-primary" style="display:inline-flex;align-items:center;gap:6px">Agendar conversación →</a>
+  </div>
+</section>
+<!-- QUIÉNES SOMOS (Misión, Visión, Valores) -->
+<section id="quien">
+  <svg class="section-bg-r" viewBox="0 3 30 30" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <g fill="currentColor">
+      <path d="M29.49,28.86l-3.64-5a16.67,16.67,0,0,0-2.18-2.47v-.12c3.51-1,5.93-3.51,5.93-7.6,0-5.59-4.32-8.47-10-8.47H7.14a.7.7,0,0,0-.69.7V9.56h13c2.94,0,5.07,1.27,5.07,4.09s-2.19,4-5.07,4H7.64a1.19,1.19,0,0,0-1.19,1.2V29.26a.74.74,0,0,0,.69.69h3.68a.74.74,0,0,0,.69-.69V21.77h6.74l5.65,7.78a1.08,1.08,0,0,0,.8.4h4.73c.34,0,.46-.11.46-.35S29.83,29.32,29.49,28.86Z"/>
+      <circle cx="2.2" cy="13.62" r="2.2"/>
+    </g>
+  </svg>
+
+  <div class="section-label reveal">Quiénes somos</div>
+  <h2 class="section-title reveal">Cómo pensamos<br>el trabajo.</h2>
+  <p class="section-sub reveal">Tres principios que definen cada proyecto que tomamos.</p>
+  <div class="mvv-grid">
+    <div class="mvv-card reveal">
+      <div class="mvv-tag">Misión</div>
+      <div class="mvv-title">Las preguntas correctas antes que las herramientas.</div>
+      <p class="mvv-text">Acompañamos a dueños y líderes de PyMEs de retail y consumo masivo a hacer las preguntas correctas antes de invertir en tecnología. Diagnosticamos cuellos de botella reales, ordenamos procesos y cultura, y recién después escalamos con IA — porque la tecnología acelera lo que ya funciona; no arregla lo que no.</p>
+    </div>
+    <div class="mvv-card reveal">
+      <div class="mvv-tag">Visión</div>
+      <div class="mvv-title">Cambiar la forma en que las pymes adoptan tecnología.</div>
+      <p class="mvv-text">Ser la consultora de referencia en transformación organizacional para las PyMEs de retail y consumo masivo en Argentina. Pasar del entusiasmo improvisado al criterio con foco. Que ResetNess sea, ante todo, la convicción de que el crecimiento sostenible empieza por ordenar adentro.</p>
+    </div>
+    <div class="mvv-card reveal">
+      <div class="mvv-tag">Valores</div>
+      <div class="mvv-title">Cinco principios.</div>
+      <ul class="mvv-values">
+        <li><strong>Conciencia.</strong> Ver con honestidad dónde estamos antes de actuar.</li>
+        <li><strong>Convicción.</strong> Vivimos lo que enseñamos. No vendemos fórmulas — acompañamos procesos reales.</li>
+        <li><strong>Humanidad.</strong> Las empresas son personas. Y las personas merecen ser escuchadas antes de ser dirigidas.</li>
+        <li><strong>Proceso.</strong> La transformación está en el camino, no en el resultado.</li>
+        <li><strong>Claridad.</strong> Frenar para ver mejor. Repensar para decidir con foco.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios">
+  <svg class="section-bg-r" viewBox="0 3 30 30" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <g fill="currentColor">
+      <path d="M29.49,28.86l-3.64-5a16.67,16.67,0,0,0-2.18-2.47v-.12c3.51-1,5.93-3.51,5.93-7.6,0-5.59-4.32-8.47-10-8.47H7.14a.7.7,0,0,0-.69.7V9.56h13c2.94,0,5.07,1.27,5.07,4.09s-2.19,4-5.07,4H7.64a1.19,1.19,0,0,0-1.19,1.2V29.26a.74.74,0,0,0,.69.69h3.68a.74.74,0,0,0,.69-.69V21.77h6.74l5.65,7.78a1.08,1.08,0,0,0,.8.4h4.73c.34,0,.46-.11.46-.35S29.83,29.32,29.49,28.86Z"/>
+      <circle cx="2.2" cy="13.62" r="2.2"/>
+    </g>
+  </svg>
+
+  <div class="section-label reveal">¿En qué te acompañamos?</div>
+  <h2 class="section-title reveal">Tres etapas.<br>Un solo norte: que funcione.</h2>
+  <p class="section-sub reveal" style="color:rgba(255,255,255,0.6)">Todo entra en alguna de estas tres. El orden importa.</p>
+  <div class="servicios-grid" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+    <div class="servicio-card reveal">
+      <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#C2410C;font-weight:700;margin-bottom:10px">01 — Diagnóstico</div>
+      <h3>Entender qué está fallando</h3>
+      <div class="servicio-name">Reset Diagnóstico · 72 hs</div>
+      <p>Mapeamos cuellos de botella, estructura, cultura y datos. Resultado: claridad total sobre dónde está el problema real y qué mover primero. Sin esto, cualquier solución es un disparo al aire.</p>
+    </div>
+    <div class="servicio-card reveal">
+      <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#C2410C;font-weight:700;margin-bottom:10px">02 — Orden</div>
+      <h3>Ordenar la estructura</h3>
+      <div class="servicio-name">Programa ResetNess 90/180</div>
+      <p>Implementamos la transformación con tu equipo: procesos, roles, indicadores, cultura. Semana a semana, con entregables visibles. No consultoría que opina — ejecución que deja huella.</p>
+    </div>
+    <div class="servicio-card reveal">
+      <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#C2410C;font-weight:700;margin-bottom:10px">03 — Escalado</div>
+      <h3>Crecer sin que todo dependa de vos</h3>
+      <div class="servicio-name">Formación in-company · Mentoría 1 a 1</div>
+      <p>Capacitamos al equipo (liderazgo, retail data-driven, customer experience, control de merma) y acompañamos al dueño en las decisiones difíciles. Para que los cambios se sostengan solos.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CASOS RESETNESS -->
+<section id="accion">
+  <svg class="section-bg-r" viewBox="0 3 30 30" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <g fill="currentColor">
+      <path d="M29.49,28.86l-3.64-5a16.67,16.67,0,0,0-2.18-2.47v-.12c3.51-1,5.93-3.51,5.93-7.6,0-5.59-4.32-8.47-10-8.47H7.14a.7.7,0,0,0-.69.7V9.56h13c2.94,0,5.07,1.27,5.07,4.09s-2.19,4-5.07,4H7.64a1.19,1.19,0,0,0-1.19,1.2V29.26a.74.74,0,0,0,.69.69h3.68a.74.74,0,0,0,.69-.69V21.77h6.74l5.65,7.78a1.08,1.08,0,0,0,.8.4h4.73c.34,0,.46-.11.46-.35S29.83,29.32,29.49,28.86Z"/>
+      <circle cx="2.2" cy="13.62" r="2.2"/>
+    </g>
+  </svg>
+
+  <div class="section-label reveal">Casos ResetNess</div>
+  <h2 class="section-title reveal">Trabajo real,<br>en empresas reales.</h2>
+  <p class="section-sub reveal">Resultados reales, en empresas reales. Cada caso muestra el problema de entrada y el impacto generado.</p>
+
+  <!-- Casos de consultoría -->
+  <div class="banda-label reveal">
+    <span class="banda-text">Casos de consultoría</span>
+  </div>
+  <div class="casos-grid">
+
+    <!-- CNH Industrial -->
+    <div class="caso-card reveal">
+      <div class="caso-header" style="background:linear-gradient(135deg,#0F766E,#14B8A6)">
+        <div>
+          <div style="color:rgba(255,255,255,0.55);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px">Industria · Productividad</div>
+          <div style="color:#fff;font-size:24px;font-weight:900;line-height:1;font-family:'Playfair Display',serif">Origen</div>
+          <div style="color:rgba(255,255,255,0.85);font-size:13px;margin-top:6px;font-weight:600">del método ResetNess</div>
+        </div>
+      </div>
+      <div class="caso-body">
+        <div class="caso-tag">Diagnóstico + tecnología</div>
+        <div class="caso-titulo">CNH Industrial (Grupo Stellantis)</div>
+        <div class="caso-desc">Diagnóstico de productividad en línea de producción + diseño e implementación de una <strong>app para medir saturación de embalajes</strong>. <em>Primer hito como consultor — el caso donde nació el método ResetNess: ordenar primero, medir después, incorporar tecnología al final.</em></div>
+      </div>
+    </div>
+
+    <!-- Lubricentro Urquiza -->
+    <div class="caso-card reveal">
+      <div class="caso-header" style="background:linear-gradient(135deg,#0D3B66,#1A5FA3)">
+        <div>
+          <div style="color:rgba(255,255,255,0.55);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px">PyME · Servicios al automotor</div>
+          <div style="color:#fff;font-size:24px;font-weight:900;line-height:1;font-family:'Playfair Display',serif">Diagnóstico</div>
+          <div style="color:rgba(255,255,255,0.85);font-size:13px;margin-top:6px;font-weight:600">organizacional + marketing</div>
+        </div>
+      </div>
+      <div class="caso-body">
+        <div class="caso-tag">Cultura + procesos + marketing integrado</div>
+        <div class="caso-titulo">Lubricentro Urquiza</div>
+        <div class="caso-desc">Diagnóstico de cultura, roles y procesos. Definición de propuesta de valor, posicionamiento local y <strong>plan de marketing integrado</strong> aplicado a la operación cotidiana. <em>Orden interno conectado al cliente final — el método aplicado a una PyME de servicio.</em></div>
+      </div>
+    </div>
+
+    <!-- Lodicor -->
+    <div class="caso-card reveal">
+      <div class="caso-header" style="background:linear-gradient(135deg,#1A1A8C,#2B2BB0)">
+        <div>
+          <div style="color:rgba(255,255,255,0.5);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;line-height:1.4">PyME · Distribuidora mayorista de pollos CALISA, derivados y congelados</div>
+          <div style="color:#fff;font-size:16px;font-weight:800;font-family:'Playfair Display',serif;font-style:italic">"Conectando Valor:<br>Más Allá de Vender"</div>
+        </div>
+      </div>
+      <div class="caso-body">
+        <div class="caso-tag">Reorganización comercial + workshop</div>
+        <div class="caso-titulo">Lodicor SAS — Estructuración del área comercial</div>
+        <div class="caso-desc">Reorganización interna: estructuración de procesos, definición de objetivos comerciales por área y workshop intensivo con el equipo de ventas. Cultura comercial alineada y motivación tangible.</div>
+        <div class="caso-quote">
+          <p>"Su aporte fue clave para estructurar procesos, definir objetivos comerciales y ordenar la gestión del área. Está generando un impacto muy positivo en la motivación de los colaboradores, resultados tangibles y en la cultura comercial."</p>
+          <div class="caso-quote-autor"><strong>Lucas Dalpino</strong> · Responsable Comercial y Logística — Lodicor SAS</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kigüi BD -->
+    <div class="caso-card reveal">
+      <div class="caso-header" style="background:linear-gradient(135deg,#280063,#5A1AAC)">
+        <div>
+          <div style="color:rgba(255,255,255,0.5);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px">Alianza · Retail tech</div>
+          <div style="color:#fff;font-size:24px;font-weight:900;line-height:1;font-family:'Playfair Display',serif">IA en góndola</div>
+          <div style="color:rgba(255,255,255,0.85);font-size:12px;margin-top:6px;font-weight:600">Expansión comercial</div>
+        </div>
+      </div>
+      <div class="caso-body">
+        <div class="caso-tag">Business Development · Retail tech</div>
+        <div class="caso-titulo">Kigüi — Expansión Córdoba e interior</div>
+        <div class="caso-desc">Ayudamos en la expansión comercial de Kigüi (IA aplicada a retail) en Córdoba e interior. Discovery, validación de casos de uso y presentaciones ejecutivas con decisores de Operaciones, TI, Trade Marketing y Supply Chain.</div>
+      </div>
+    </div>
+
+  </div>
+
+
+</section>
+
+
+
+<!-- PARTNERS -->
+<section id="partners">
+  <svg class="section-bg-r" viewBox="0 3 30 30" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <g fill="currentColor">
+      <path d="M29.49,28.86l-3.64-5a16.67,16.67,0,0,0-2.18-2.47v-.12c3.51-1,5.93-3.51,5.93-7.6,0-5.59-4.32-8.47-10-8.47H7.14a.7.7,0,0,0-.69.7V9.56h13c2.94,0,5.07,1.27,5.07,4.09s-2.19,4-5.07,4H7.64a1.19,1.19,0,0,0-1.19,1.2V29.26a.74.74,0,0,0,.69.69h3.68a.74.74,0,0,0,.69-.69V21.77h6.74l5.65,7.78a1.08,1.08,0,0,0,.8.4h4.73c.34,0,.46-.11.46-.35S29.83,29.32,29.49,28.86Z"/>
+      <circle cx="2.2" cy="13.62" r="2.2"/>
+    </g>
+  </svg>
+
+  <div class="section-label reveal">Herramientas</div>
+  <h2 class="section-title reveal">Implementamos tecnología cuando<br>el problema es de gestión, no al revés.</h2>
+  <p class="section-sub reveal">La mayoría de las PyMEs no tienen un problema de herramientas. Tienen un problema de orden. Una app no arregla un proceso roto.</p>
+
+  <div class="reveal" style="margin:40px 0 0;">
+
+    <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.3);font-weight:700;margin-bottom:36px;text-align:center">El orden que seguimos</div>
+
+    <!-- Pipeline: 5 pasos horizontales -->
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative;">
+
+      <!-- Línea de progreso de fondo -->
+      <div style="position:absolute;top:44px;left:10%;right:10%;height:1px;background:linear-gradient(90deg,rgba(194,65,12,0.5),rgba(217,119,6,0.5),rgba(13,148,136,0.5),rgba(124,58,237,0.5),rgba(26,107,255,0.5));z-index:0;"></div>
+
+      <!-- 01 Procesos -->
+      <div style="display:flex;flex-direction:column;align-items:center;padding:0 8px;position:relative;z-index:1;">
+        <div style="width:88px;height:88px;border-radius:50%;background:rgba(194,65,12,0.1);border:1.5px solid rgba(194,65,12,0.5);display:flex;align-items:center;justify-content:center;margin-bottom:20px;flex-shrink:0;">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 11.5A6.5 6.5 0 1 1 18 24.5A6.5 6.5 0 0 1 18 11.5Z" stroke="#fb923c" stroke-width="1.5" fill="none"/>
+            <path d="M18 7V4M18 32V29M29 18H32M4 18H7M26.07 9.93L28.19 7.81M7.81 28.19L9.93 26.07M26.07 26.07L28.19 28.19M7.81 7.81L9.93 9.93" stroke="#fb923c" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="18" cy="18" r="2.5" fill="#fb923c" opacity="0.7"/>
+          </svg>
+        </div>
+        <div style="font-size:10px;color:rgba(251,146,60,0.5);font-weight:700;letter-spacing:2px;margin-bottom:5px;">01</div>
+        <div style="font-size:14px;font-weight:700;color:#fb923c;text-align:center;line-height:1.3;">Procesos</div>
+        <div style="font-size:11.5px;color:rgba(255,255,255,0.35);text-align:center;margin-top:6px;line-height:1.5;">Cómo se hace<br>el trabajo</div>
+      </div>
+
+      <!-- 02 Estructura -->
+      <div style="display:flex;flex-direction:column;align-items:center;padding:0 8px;position:relative;z-index:1;">
+        <div style="width:88px;height:88px;border-radius:50%;background:rgba(217,119,6,0.1);border:1.5px solid rgba(217,119,6,0.45);display:flex;align-items:center;justify-content:center;margin-bottom:20px;flex-shrink:0;">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Nodo raíz -->
+            <rect x="13" y="4" width="10" height="7" rx="2" stroke="#fbbf24" stroke-width="1.5" fill="none"/>
+            <!-- Línea central -->
+            <line x1="18" y1="11" x2="18" y2="16" stroke="#fbbf24" stroke-width="1.5"/>
+            <!-- Línea horizontal -->
+            <line x1="8" y1="16" x2="28" y2="16" stroke="#fbbf24" stroke-width="1.5"/>
+            <!-- Rama izq -->
+            <line x1="8" y1="16" x2="8" y2="20" stroke="#fbbf24" stroke-width="1.5"/>
+            <rect x="3" y="20" width="10" height="7" rx="2" stroke="#fbbf24" stroke-width="1.5" fill="none"/>
+            <!-- Rama der -->
+            <line x1="28" y1="16" x2="28" y2="20" stroke="#fbbf24" stroke-width="1.5"/>
+            <rect x="23" y="20" width="10" height="7" rx="2" stroke="#fbbf24" stroke-width="1.5" fill="none"/>
+            <!-- Rama centro (opcional) -->
+            <line x1="18" y1="16" x2="18" y2="20" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="2 2"/>
+          </svg>
+        </div>
+        <div style="font-size:10px;color:rgba(251,191,36,0.5);font-weight:700;letter-spacing:2px;margin-bottom:5px;">02</div>
+        <div style="font-size:14px;font-weight:700;color:#fbbf24;text-align:center;line-height:1.3;">Estructura</div>
+        <div style="font-size:11.5px;color:rgba(255,255,255,0.35);text-align:center;margin-top:6px;line-height:1.5;">Quién hace<br>qué</div>
+      </div>
+
+      <!-- 03 Indicadores -->
+      <div style="display:flex;flex-direction:column;align-items:center;padding:0 8px;position:relative;z-index:1;">
+        <div style="width:88px;height:88px;border-radius:50%;background:rgba(13,148,136,0.1);border:1.5px solid rgba(13,148,136,0.45);display:flex;align-items:center;justify-content:center;margin-bottom:20px;flex-shrink:0;">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Ejes -->
+            <line x1="6" y1="29" x2="30" y2="29" stroke="#2dd4bf" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="6" y1="6" x2="6" y2="29" stroke="#2dd4bf" stroke-width="1.5" stroke-linecap="round"/>
+            <!-- Barras -->
+            <rect x="9" y="20" width="4" height="9" rx="1" fill="#2dd4bf" opacity="0.35"/>
+            <rect x="15" y="14" width="4" height="15" rx="1" fill="#2dd4bf" opacity="0.55"/>
+            <rect x="21" y="9" width="4" height="20" rx="1" fill="#2dd4bf" opacity="0.75"/>
+            <!-- Línea de tendencia -->
+            <polyline points="11,22 17,16 23,11" stroke="#2dd4bf" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="23" cy="11" r="2" fill="#2dd4bf"/>
+          </svg>
+        </div>
+        <div style="font-size:10px;color:rgba(45,212,191,0.5);font-weight:700;letter-spacing:2px;margin-bottom:5px;">03</div>
+        <div style="font-size:14px;font-weight:700;color:#2dd4bf;text-align:center;line-height:1.3;">Indicadores</div>
+        <div style="font-size:11.5px;color:rgba(255,255,255,0.35);text-align:center;margin-top:6px;line-height:1.5;">Cómo se mide<br>el resultado</div>
+      </div>
+
+      <!-- 04 Personas -->
+      <div style="display:flex;flex-direction:column;align-items:center;padding:0 8px;position:relative;z-index:1;">
+        <div style="width:88px;height:88px;border-radius:50%;background:rgba(124,58,237,0.1);border:1.5px solid rgba(124,58,237,0.45);display:flex;align-items:center;justify-content:center;margin-bottom:20px;flex-shrink:0;">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Persona izq -->
+            <circle cx="12" cy="10" r="4" stroke="#c4b5fd" stroke-width="1.5" fill="none"/>
+            <path d="M4 28C4 23 7.5 20 12 20" stroke="#c4b5fd" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+            <!-- Persona der -->
+            <circle cx="24" cy="10" r="4" stroke="#c4b5fd" stroke-width="1.5" fill="none" opacity="0.6"/>
+            <path d="M32 28C32 23 28.5 20 24 20" stroke="#c4b5fd" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.6"/>
+            <!-- Línea de conexión central -->
+            <path d="M12 20C14 18 22 18 24 20" stroke="#c4b5fd" stroke-width="1.5" stroke-linecap="round" fill="none" stroke-dasharray="2.5 2"/>
+          </svg>
+        </div>
+        <div style="font-size:10px;color:rgba(196,181,253,0.5);font-weight:700;letter-spacing:2px;margin-bottom:5px;">04</div>
+        <div style="font-size:14px;font-weight:700;color:#c4b5fd;text-align:center;line-height:1.3;">Personas</div>
+        <div style="font-size:11.5px;color:rgba(255,255,255,0.35);text-align:center;margin-top:6px;line-height:1.5;">Quién lidera<br>y entrena</div>
+      </div>
+
+      <!-- 05 Tecnología -->
+      <div style="display:flex;flex-direction:column;align-items:center;padding:0 8px;position:relative;z-index:1;">
+        <div style="width:88px;height:88px;border-radius:50%;background:rgba(26,107,255,0.1);border:1.5px solid rgba(26,107,255,0.5);display:flex;align-items:center;justify-content:center;margin-bottom:20px;flex-shrink:0;position:relative;">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Chip / Circuito -->
+            <rect x="11" y="11" width="14" height="14" rx="2" stroke="#93bbff" stroke-width="1.5" fill="none"/>
+            <!-- Pines arriba -->
+            <line x1="15" y1="11" x2="15" y2="7" stroke="#93bbff" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="18" y1="11" x2="18" y2="7" stroke="#93bbff" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="21" y1="11" x2="21" y2="7" stroke="#93bbff" stroke-width="1.5" stroke-linecap="round"/>
+            <!-- Pines abajo -->
+            <line x1="15" y1="25" x2="15" y2="29" stroke="#93bbff" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="18" y1="25" x2="18" y2="29" stroke="#93bbff" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="21" y1="25" x2="21" y2="29" stroke="#93bbff" stroke-width="1.5" stroke-linecap="round"/>
+            <!-- Pines izq -->
+            <line x1="11" y1="15" x2="7" y2="15" stroke="#93bbff" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="11" y1="21" x2="7" y2="21" stroke="#93bbff" stroke-width="1.5" stroke-linecap="round"/>
+            <!-- Pines der -->
+            <line x1="25" y1="15" x2="29" y2="15" stroke="#93bbff" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="25" y1="21" x2="29" y2="21" stroke="#93bbff" stroke-width="1.5" stroke-linecap="round"/>
+            <!-- Centro -->
+            <rect x="15" y="15" width="6" height="6" rx="0.5" fill="#93bbff" opacity="0.35"/>
+          </svg>
+          <!-- Badge AL FINAL -->
+          <div style="position:absolute;top:-6px;right:-6px;background:rgba(26,107,255,0.9);border:1px solid rgba(147,187,255,0.4);border-radius:20px;padding:2px 8px;font-size:8px;color:#93bbff;letter-spacing:1.5px;font-weight:700;white-space:nowrap;">AL FINAL</div>
+        </div>
+        <div style="font-size:10px;color:rgba(147,187,255,0.5);font-weight:700;letter-spacing:2px;margin-bottom:5px;">05</div>
+        <div style="font-size:14px;font-weight:700;color:#93bbff;text-align:center;line-height:1.3;">Tecnología</div>
+        <div style="font-size:11.5px;color:rgba(255,255,255,0.35);text-align:center;margin-top:6px;line-height:1.5;">La herramienta<br>correcta</div>
+      </div>
+
+    </div>
+
+    <p style="margin-top:36px;color:rgba(255,255,255,0.35);font-size:13px;line-height:1.7;border-top:1px solid rgba(255,255,255,0.06);padding-top:20px;text-align:center;">La tecnología entra al final, no al principio. Primero ordenamos la casa. Recién después las herramientas correctas la hacen sostenible.</p>
+  </div>
+
+  <p class="reveal" style="text-align:center;color:rgba(255,255,255,0.35);font-size:12.5px;margin-top:48px;letter-spacing:0.3px">Trabajamos con herramientas y aliados tecnológicos para ejecutar mejoras cuando el momento lo requiere.<br>
+  <span style="opacity:0.6">Kigüi &nbsp;·&nbsp; Humand &nbsp;·&nbsp; Netcamara</span></p>
+</section>
+
+<!-- SOBRE / POR QUÉ HAGO ESTO -->
+<section id="fundador">
+  <svg class="section-bg-r" viewBox="0 3 30 30" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <g fill="currentColor">
+      <path d="M29.49,28.86l-3.64-5a16.67,16.67,0,0,0-2.18-2.47v-.12c3.51-1,5.93-3.51,5.93-7.6,0-5.59-4.32-8.47-10-8.47H7.14a.7.7,0,0,0-.69.7V9.56h13c2.94,0,5.07,1.27,5.07,4.09s-2.19,4-5.07,4H7.64a1.19,1.19,0,0,0-1.19,1.2V29.26a.74.74,0,0,0,.69.69h3.68a.74.74,0,0,0,.69-.69V21.77h6.74l5.65,7.78a1.08,1.08,0,0,0,.8.4h4.73c.34,0,.46-.11.46-.35S29.83,29.32,29.49,28.86Z"/>
+      <circle cx="2.2" cy="13.62" r="2.2"/>
+    </g>
+  </svg>
+
+  <div class="section-label reveal">Quién está detrás</div>
+  <h2 class="section-title reveal">+20 años resolviendo<br>lo que otros diagnostican.</h2>
+  <p class="section-sub reveal">La diferencia entre un consultor y alguien que hizo el trabajo: haber estado adentro, con presupuesto real, equipos reales y resultados que importaban.</p>
+
+  <div class="fundador-layout reveal" style="display:flex;gap:48px;align-items:flex-start;flex-wrap:wrap;margin-top:48px">
+    <div style="flex:1;min-width:280px">
+      <div style="font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:#fff;font-weight:700;margin-bottom:18px;padding-bottom:10px;border-bottom:2px solid rgba(194,65,12,0.5)">La historia corta</div>
+      <p style="color:rgba(255,255,255,0.8);font-size:15px;line-height:1.75;margin-bottom:16px">
+        A los 18, en Lockheed Martin, aprendí un lema que nunca abandoné: <em>"un avión en el aire no tiene banquina"</em>. Eficiencia del 100%, sin atajos.
+      </p>
+      <p style="color:rgba(255,255,255,0.8);font-size:15px;line-height:1.75;margin-bottom:16px">
+        Después vinieron casi 22 años en Carrefour Argentina — mi MBA práctico. Terminé como Jefe Comercial y Líder de la unidad B2B. Desde ahí, dirección de PyMEs en industria, textil y panificación.
+      </p>
+      <p style="color:rgba(255,255,255,0.8);font-size:15px;line-height:1.75">
+        Lic. en Administración. Diplomado Consultor MiPyME. Especialización en Marketing y Dirección Comercial (2026). Hoy, en ResetNess, pongo ese recorrido a trabajar para PyMEs que quieren crecer con orden.
+      </p>
+    </div>
+    <div style="flex:0 0 auto;min-width:260px">
+      <div style="font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:#fff;font-weight:700;margin-bottom:18px;padding-bottom:10px;border-bottom:2px solid rgba(194,65,12,0.5)">Lo que no negociamos</div>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;gap:14px;align-items:flex-start">
+          <span style="color:#C2410C;font-size:18px;line-height:1;flex-shrink:0">—</span>
+          <span style="color:rgba(255,255,255,0.8);font-size:14.5px;line-height:1.6">Decimos lo que vemos. Incluso si incomoda.</span>
+        </div>
+        <div style="display:flex;gap:14px;align-items:flex-start">
+          <span style="color:#C2410C;font-size:18px;line-height:1;flex-shrink:0">—</span>
+          <span style="color:rgba(255,255,255,0.8);font-size:14.5px;line-height:1.6">Construimos con tu equipo, no por encima. La transformación que se delega no se sostiene.</span>
+        </div>
+        <div style="display:flex;gap:14px;align-items:flex-start">
+          <span style="color:#C2410C;font-size:18px;line-height:1;flex-shrink:0">—</span>
+          <span style="color:rgba(255,255,255,0.8);font-size:14.5px;line-height:1.6">La tecnología entra al final. Primero ordenamos.</span>
+        </div>
+      </div>
+      <div style="margin-top:28px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.08)">
+        <div style="color:#fff;font-weight:700;font-size:15px">Lic. Darío Cáseres</div>
+        <div style="color:rgba(255,255,255,0.45);font-size:12.5px;margin-top:4px">Fundador &amp; Consultor PyMEs</div>
+        <a href="https://linkedin.com/in/dariocaseres" target="_blank" style="display:inline-block;margin-top:10px;color:#5588ff;font-size:12.5px;text-decoration:none">linkedin.com/in/dariocaseres →</a>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="background:#0d1b2e !important">
+  <svg class="section-bg-r" viewBox="0 3 30 30" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <g fill="currentColor">
+      <path d="M29.49,28.86l-3.64-5a16.67,16.67,0,0,0-2.18-2.47v-.12c3.51-1,5.93-3.51,5.93-7.6,0-5.59-4.32-8.47-10-8.47H7.14a.7.7,0,0,0-.69.7V9.56h13c2.94,0,5.07,1.27,5.07,4.09s-2.19,4-5.07,4H7.64a1.19,1.19,0,0,0-1.19,1.2V29.26a.74.74,0,0,0,.69.69h3.68a.74.74,0,0,0,.69-.69V21.77h6.74l5.65,7.78a1.08,1.08,0,0,0,.8.4h4.73c.34,0,.46-.11.46-.35S29.83,29.32,29.49,28.86Z"/>
+      <circle cx="2.2" cy="13.62" r="2.2"/>
+    </g>
+  </svg>
+
+  <div class="section-label reveal">Preguntas frecuentes</div>
+  <h2 class="section-title reveal">Las dudas que<br>la mayoría no pregunta.</h2>
+
+  <style>
+    #faq details summary { list-style:none; -webkit-appearance:none; }
+    #faq details summary::-webkit-details-marker { display:none; }
+    #faq details summary::marker { display:none; content:""; }
+    #faq details[open] summary .faq-icon { transform:rotate(45deg); }
+    #faq details summary .faq-icon { transition:transform 0.2s ease; display:inline-block; }
+    #faq .faq-item { background:transparent !important; border-left:none !important; box-shadow:none !important; padding:0 !important; border-radius:0 !important; }
+    #faq details > p { color:rgba(255,255,255,0.65) !important; }
+  </style>
+
+  <div class="faq-list reveal" style="max-width:720px;margin:48px auto 0;display:flex;flex-direction:column;gap:0">
+
+    <details class="faq-item" style="border-top:1px solid rgba(255,255,255,0.1);padding:0">
+      <summary style="cursor:pointer;padding:24px 0;font-size:17px;font-weight:700;color:#ffffff;display:flex;justify-content:space-between;align-items:center;gap:16px;list-style:none">
+        ¿Esto es para empresas chicas?
+        <span class="faq-icon" style="color:#C2410C;font-size:22px;line-height:1;flex-shrink:0;font-weight:300">+</span>
+      </summary>
+      <p style="margin:0 0 24px;color:rgba(255,255,255,0.65);font-size:15px;line-height:1.8">
+        El tamaño no define si hay problema — el caos sí. Trabajamos con PyMEs desde 5 personas. Lo que importa no es cuántos son, sino si el dueño puede salir de la operación o si el margen no refleja el esfuerzo. Si alguno de los dos falla, hay trabajo por hacer.
+      </p>
+    </details>
+
+    <details class="faq-item" style="border-top:1px solid rgba(255,255,255,0.1);padding:0">
+      <summary style="cursor:pointer;padding:24px 0;font-size:17px;font-weight:700;color:#ffffff;display:flex;justify-content:space-between;align-items:center;gap:16px;list-style:none">
+        ¿Implementás o solo recomendás?
+        <span class="faq-icon" style="color:#C2410C;font-size:22px;line-height:1;flex-shrink:0;font-weight:300">+</span>
+      </summary>
+      <p style="margin:0 0 24px;color:rgba(255,255,255,0.65);font-size:15px;line-height:1.8">
+        Implementamos. No dejamos un informe en tu escritorio y nos vamos. El programa ResetNess trabaja semana a semana con tu equipo hasta que los cambios quedan instalados en la operación diaria. La consultoría que no ejecuta no transforma.
+      </p>
+    </details>
+
+    <details class="faq-item" style="border-top:1px solid rgba(255,255,255,0.1);padding:0">
+      <summary style="cursor:pointer;padding:24px 0;font-size:17px;font-weight:700;color:#ffffff;display:flex;justify-content:space-between;align-items:center;gap:16px;list-style:none">
+        ¿Cuánto tiempo lleva ver resultados?
+        <span class="faq-icon" style="color:#C2410C;font-size:22px;line-height:1;flex-shrink:0;font-weight:300">+</span>
+      </summary>
+      <p style="margin:0 0 24px;color:rgba(255,255,255,0.65);font-size:15px;line-height:1.8">
+        El diagnóstico inicial se hace en 72 hs. Los primeros cambios visibles aparecen entre la semana 3 y 6. Resultados sostenidos, entre los 90 y 180 días. No prometemos magia — prometemos proceso con fechas claras.
+      </p>
+    </details>
+
+    <details class="faq-item" style="border-top:1px solid rgba(255,255,255,0.1);border-bottom:1px solid rgba(255,255,255,0.1);padding:0">
+      <summary style="cursor:pointer;padding:24px 0;font-size:17px;font-weight:700;color:#ffffff;display:flex;justify-content:space-between;align-items:center;gap:16px;list-style:none">
+        ¿Cómo sé si realmente necesito esto?
+        <span class="faq-icon" style="color:#C2410C;font-size:22px;line-height:1;flex-shrink:0;font-weight:300">+</span>
+      </summary>
+      <p style="margin:0 0 24px;color:rgba(255,255,255,0.65);font-size:15px;line-height:1.8">
+        Si facturás pero el margen no refleja el trabajo, si todo pasa por vos, si tu equipo opera pero no produce resultados medibles, o si sabés que algo hay que cambiar pero no sabés qué — ya tenés la respuesta. El autodiagnóstico gratuito te da claridad en 10 minutos.
+      </p>
+    </details>
+
+  </div>
+</section>
+
+<!-- DIAGNÓSTICO INTERACTIVO -->
+<section id="diagnostico">
+  <svg class="section-bg-r" viewBox="0 3 30 30" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <g fill="currentColor">
+      <path d="M29.49,28.86l-3.64-5a16.67,16.67,0,0,0-2.18-2.47v-.12c3.51-1,5.93-3.51,5.93-7.6,0-5.59-4.32-8.47-10-8.47H7.14a.7.7,0,0,0-.69.7V9.56h13c2.94,0,5.07,1.27,5.07,4.09s-2.19,4-5.07,4H7.64a1.19,1.19,0,0,0-1.19,1.2V29.26a.74.74,0,0,0,.69.69h3.68a.74.74,0,0,0,.69-.69V21.77h6.74l5.65,7.78a1.08,1.08,0,0,0,.8.4h4.73c.34,0,.46-.11.46-.35S29.83,29.32,29.49,28.86Z"/>
+      <circle cx="2.2" cy="13.62" r="2.2"/>
+    </g>
+  </svg>
+
+  <div class="diag-eyebrow reveal">Diagnóstico operativo · Online · Gratuito</div>
+  <h2 class="diag-title reveal">¿Sabés qué está<br>frenando tu PyME?</h2>
+  <p class="diag-sub reveal">Cinco preguntas sobre tu operación. Sin reuniones, sin consultores. Al final recibís un score y la prioridad concreta que más te está costando rentabilidad — para que sepas exactamente qué atacar primero.</p>
+  <div class="diag-bullets reveal">
+    <div class="diag-bullet">⏱ <strong>5 minutos</strong></div>
+    <div class="diag-bullet">📊 <strong>Score objetivo</strong></div>
+    <div class="diag-bullet">🎯 <strong>Una prioridad, no una lista</strong></div>
+  </div>
+  <button class="diag-cta reveal" type="button" onclick="drStart()">Empezar autodiagnóstico online →</button>
+
+  <!-- Screens interactivos (ocultos hasta drStart) -->
+  <div id="dr-app" class="dr-app">
+    <div class="dr-card dr-screen" id="dr-screen-question" style="display:none">
+      <div class="dr-progress-wrap">
+        <div class="dr-progress-bar"><div class="dr-progress-fill" id="dr-progress-fill"></div></div>
+        <div class="dr-progress-label" id="dr-progress-label">Pregunta 1 de 5</div>
+      </div>
+      <div class="dr-q-num" id="dr-q-num">PREGUNTA 1 DE 5</div>
+      <h3 class="dr-q-title" id="dr-q-title"></h3>
+      <p class="dr-q-sub" id="dr-q-sub"></p>
+      <div class="dr-options" id="dr-options"></div>
+      <div class="dr-nav-row">
+        <button class="dr-btn dr-btn-secondary" id="dr-btn-back" type="button" onclick="drBack()">← Atrás</button>
+        <button class="dr-btn dr-btn-primary" id="dr-btn-next" type="button" onclick="drNext()" disabled>Continuar →</button>
+      </div>
+    </div>
+
+    <div class="dr-card dr-screen" id="dr-screen-gate" style="display:none">
+      <div class="dr-gate-icon">📩</div>
+      <h3 class="dr-result-title">Tu diagnóstico está listo.</h3>
+      <p class="dr-result-text">Dejanos tu contacto y te mostramos tu score + interpretación personalizada + recomendación priorizada. Sin spam: solo te llega el informe ampliado por mail.</p>
+      <div class="dr-form-group">
+        <label for="dr-f-name">Nombre</label>
+        <input type="text" id="dr-f-name" placeholder="Tu nombre" autocomplete="name">
+      </div>
+      <div class="dr-form-group">
+        <label for="dr-f-email">Email</label>
+        <input type="email" id="dr-f-email" placeholder="tu@empresa.com" autocomplete="email">
+      </div>
+      <div class="dr-form-group">
+        <label for="dr-f-phone">WhatsApp o teléfono <span style="color:#8A8A98;font-weight:400">(opcional, recomendado)</span></label>
+        <input type="tel" id="dr-f-phone" placeholder="+54 351 ..." autocomplete="tel">
+        <div class="dr-form-helper">Si no clickeás el botón de WhatsApp al final, te contactamos nosotros.</div>
+      </div>
+      <div class="dr-form-group">
+        <label for="dr-f-company">Empresa <span style="color:#8A8A98;font-weight:400">(opcional)</span></label>
+        <input type="text" id="dr-f-company" placeholder="Nombre de tu empresa">
+        <div class="dr-form-helper">Lo usamos solo para enviarte el informe ampliado y, si querés, agendar una llamada sin costo.</div>
+      </div>
+      <div class="dr-form-error" id="dr-form-error">Necesitamos al menos tu nombre y un email válido.</div>
+      <button class="dr-btn dr-btn-primary dr-btn-block" type="button" onclick="drSubmitGate()">Ver mi diagnóstico →</button>
+    </div>
+
+    <div class="dr-card dr-screen" id="dr-screen-result" style="display:none">
+      <div class="dr-score-block">
+        <div class="dr-score-num"><span id="dr-score">0</span><span class="dr-score-max">/100</span></div>
+        <div class="dr-score-band" id="dr-band">CARGANDO</div>
+      </div>
+      <h3 class="dr-result-title" id="dr-r-title"></h3>
+      <p class="dr-result-text" id="dr-r-text"></p>
+      <div class="dr-priority-box">
+        <h4>Tu prioridad ahora</h4>
+        <p id="dr-r-priority"></p>
+      </div>
+      <p class="dr-result-text dr-r-next" id="dr-r-next"></p>
+      <div class="dr-cta-block">
+        <a class="dr-btn dr-btn-wa dr-btn-block" id="dr-cta-wa" href="" target="_blank" rel="noopener">📱 Agendá tu reunión de 45 min por WhatsApp</a>
+        <button class="dr-btn dr-btn-secondary dr-btn-block" type="button" onclick="drRestart()">↻ Volver a hacer el diagnóstico</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <svg class="section-bg-r" viewBox="0 3 30 30" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <g fill="currentColor">
+      <path d="M29.49,28.86l-3.64-5a16.67,16.67,0,0,0-2.18-2.47v-.12c3.51-1,5.93-3.51,5.93-7.6,0-5.59-4.32-8.47-10-8.47H7.14a.7.7,0,0,0-.69.7V9.56h13c2.94,0,5.07,1.27,5.07,4.09s-2.19,4-5.07,4H7.64a1.19,1.19,0,0,0-1.19,1.2V29.26a.74.74,0,0,0,.69.69h3.68a.74.74,0,0,0,.69-.69V21.77h6.74l5.65,7.78a1.08,1.08,0,0,0,.8.4h4.73c.34,0,.46-.11.46-.35S29.83,29.32,29.49,28.86Z"/>
+      <circle cx="2.2" cy="13.62" r="2.2"/>
+    </g>
+  </svg>
+
+  <div class="cta-eyebrow">Consulta directa · Google Meet · Sin cargo</div>
+  <h2>Hablemos de<br>tu operación.</h2>
+  <p>45 minutos con Darío Cáseres para entender qué está trabando tu PyME. Sin presentaciones, sin agenda de ventas. Si hay algo concreto que podamos hacer juntos, lo ves claro antes de terminar la llamada.</p>
+  <a href="https://wa.me/5493512215877?text=Hola%20Darío,%20me%20interesa%20conocer%20más%20sobre%20ResetNess" target="_blank" class="cta-btn">Agendá tu reunión por WhatsApp →</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p style="letter-spacing:2px;font-size:11px;color:rgba(255,255,255,0.4)">FRENÁ · REPENSÁ · DECIDÍ MEJOR</p>
+  <p style="font-size:12px;color:rgba(255,255,255,0.25);margin-top:6px;font-style:italic">Reset = Transformar · Ness = Negocios</p>
+  <p style="color:rgba(255,255,255,0.25);font-size:11px;margin-top:16px">© 2025 ResetNess<sup style="font-size:0.7em;vertical-align:super;margin-left:1px">®</sup> · Córdoba, Argentina. Contacto: <a href="https://wa.me/5493512215877?text=Hola%20Dar%C3%ADo%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20ResetNess" target="_blank" style="color:rgba(255,255,255,0.55);text-decoration:none">+54 351-2215877</a></p>
+</footer>
+
+<script>
+
+
+// (Logo + tagline ahora viven dentro del SVG inline; el script de alineado ya no es necesario.)
+
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.12 });
+reveals.forEach(r => observer.observe(r));
+
+/* ───── Diagnóstico ResetNess inline ───── */
+const DR_QUESTIONS = [
+  {
+    title: "¿Dónde están perdiendo productividad?",
+    sub: "Identificar dónde se diluye la productividad es el primer paso para recuperar margen.",
+    area: "tiempo",
+    options: [
+      { text: "Lo tenemos medido por área y por persona. Sabemos exactamente.", score: 20 },
+      { text: "Tenemos algunas hipótesis razonables, pero no datos firmes.", score: 12 },
+      { text: "Sabemos que se pierde tiempo, pero no podríamos decir dónde.", score: 6 },
+      { text: "No nos hicimos esa pregunta nunca de forma seria.", score: 0 },
+    ],
+  },
+  {
+    title: "¿Qué tarea depende demasiado de una sola persona?",
+    sub: "Cuando esa persona se va — de licencia, de vacaciones, de la empresa — ¿qué se detiene?",
+    area: "dependencia",
+    options: [
+      { text: "Tenemos procesos documentados y backup de cada rol crítico.", score: 20 },
+      { text: "Identificamos los puntos únicos, pero todavía no los resolvimos.", score: 12 },
+      { text: "Sabemos que existen pero no podríamos nombrar a las personas.", score: 6 },
+      { text: "Si X se va, no sabemos qué hacemos. Y X lo sabe.", score: 0 },
+    ],
+  },
+  {
+    title: "¿Qué parte de la operación desgasta más al equipo?",
+    sub: "El desgaste invisible es el costo oculto del crecimiento desordenado.",
+    area: "desgaste",
+    options: [
+      { text: "Tenemos un mapa claro y un plan activo de mejora.", score: 20 },
+      { text: "Lo escuchamos en las reuniones, pero todavía no lo abordamos.", score: 12 },
+      { text: "Lo intuimos por la rotación o por el clima del equipo.", score: 6 },
+      { text: "Lo descubrimos cuando alguien renuncia.", score: 0 },
+    ],
+  },
+  {
+    title: "¿Qué proceso está frenando el crecimiento?",
+    sub: "El cuello de botella estructural — el que limita la escala, no la operación diaria.",
+    area: "crecimiento",
+    options: [
+      { text: "Lo identificamos y lo estamos atacando este trimestre.", score: 20 },
+      { text: "Tenemos hipótesis razonables, sin validar con datos.", score: 12 },
+      { text: "Sabemos que crecimos menos de lo posible, no por qué.", score: 6 },
+      { text: "Asumimos que es el mercado o la macroeconomía.", score: 0 },
+    ],
+  },
+  {
+    title: "¿Qué información llega tarde — cuando ya no se puede actuar?",
+    sub: "La información que llega tarde es información que cuesta plata.",
+    area: "informacion",
+    options: [
+      { text: "Tenemos tableros en tiempo real para decisiones críticas.", score: 20 },
+      { text: "Tenemos reportes mensuales y mucho Excel ad hoc.", score: 12 },
+      { text: "La información llega cuando alguien la pide expresamente.", score: 6 },
+      { text: "Nos enteramos de los problemas cuando ya pasaron.", score: 0 },
+    ],
+  },
+];
+
+const DR_BANDS = [
+  { min:0,  max:30,  band:"ZONA ROJA",   bandClass:"dr-band-rojo",
+    title:"Están operando a ciegas y por instinto.",
+    text:"La organización tiene puntos críticos sin diagnóstico y sin plan. La buena noticia: esto se ordena rápido si se ataca con método. La mala: si invierten en IA, CRM o automatización ahora, van a acelerar el desorden — no resolverlo. Antes de comprar herramientas, hay que ver con claridad qué está pasando adentro.",
+    next:"El próximo paso lógico es un Reset Diagnóstico — el servicio de entrada de ResetNess. 72 horas de trabajo concentrado, un mapa claro de los cuellos de botella, y un plan de 90 días.",
+  },
+  { min:31, max:60,  band:"ZONA ÁMBAR",  bandClass:"dr-band-ambar",
+    title:"Saben que algo pasa, pero todavía no pueden señalarlo con precisión.",
+    text:"La organización tiene visibilidad parcial — intuiciones bien encaminadas y algunos datos, pero sin un mapa integrado de prioridades. Es el momento más peligroso para comprar tecnología: porque van a comprar algo, pero no necesariamente lo que el negocio necesita. Están en el punto exacto para frenar antes de gastar mal.",
+    next:"El próximo paso es identificar los 2-3 cuellos de botella de mayor impacto y atacarlos con foco. El Programa ResetNess 90/180 está pensado para este momento.",
+  },
+  { min:61, max:85,  band:"ZONA VERDE",  bandClass:"dr-band-verde",
+    title:"Tienen foco. La organización está madura.",
+    text:"Están en el grupo minoritario que sabe dónde duele y por qué. Eso habilita intervenciones quirúrgicas — y ahí sí, la IA aplicada a un cuello de botella concreto puede generar retorno real y medible. El riesgo no es el desorden: es la sobre-inversión en herramientas que no necesitan.",
+    next:"El próximo paso es validar la hipótesis con un especialista externo y, si corresponde, integrar un partner tecnológico (Kigüi, Humand u otros) con criterio de impacto, no de FOMO.",
+  },
+  { min:86, max:100, band:"CASO ATÍPICO", bandClass:"dr-band-azul",
+    title:"El nivel de claridad es excepcional.",
+    text:"La organización opera con un grado de orden que no es común en una PyME. Probablemente no necesiten consultoría operativa para el día a día. Lo que sí pueden explorar son escenarios de escala, internacionalización, o integración avanzada de IA en procesos ya maduros.",
+    next:"Si quieren explorar el siguiente nivel de madurez (gobierno de datos, IA aplicada a decisión estratégica, expansión), podemos tener una conversación distinta — más cercana a un sparring estratégico que a una consultoría tradicional.",
+  },
+];
+
+const DR_PRIORITY = {
+  tiempo:      "El cuello principal está en la asignación del tiempo del equipo. Antes de cualquier herramienta, hay que medir y redistribuir.",
+  dependencia: "La mayor exposición está en la dependencia operativa de personas clave. Procesos documentados y backups son urgentes.",
+  desgaste:    "El cuello principal está en el desgaste del equipo. Si no se aborda, van a perder talento — y con él, la operación.",
+  crecimiento: "Hay un proceso que está frenando la escala. Identificarlo y rediseñarlo es la palanca de mayor retorno.",
+  informacion: "El cuello principal es la latencia de la información. Decisiones tomadas tarde son decisiones caras.",
+};
+
+let drCurrent = 0;
+const drAnswers = new Array(DR_QUESTIONS.length).fill(null);
+
+const drId = (id) => document.getElementById(id);
+function drShow(id) {
+  document.querySelectorAll('#dr-app .dr-screen').forEach(el => el.style.display = 'none');
+  drId(id).style.display = 'block';
+  // Smooth scroll to section
+  const sect = document.getElementById('diagnostico');
+  if (sect) sect.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function drStart() {
+  document.getElementById('diagnostico').classList.add('dr-started');
+  drCurrent = 0;
+  drGoToQ(0);
+}
+
+function drGoToQ(idx) {
+  drCurrent = idx;
+  const q = DR_QUESTIONS[idx];
+  drId('dr-q-num').textContent = `PREGUNTA ${idx+1} DE ${DR_QUESTIONS.length}`;
+  drId('dr-q-title').textContent = q.title;
+  drId('dr-q-sub').textContent = q.sub;
+  drId('dr-progress-label').textContent = `Pregunta ${idx+1} de ${DR_QUESTIONS.length}`;
+  drId('dr-progress-fill').style.width = `${(idx/DR_QUESTIONS.length)*100}%`;
+
+  const wrap = drId('dr-options');
+  wrap.innerHTML = '';
+  q.options.forEach((opt, oi) => {
+    const el = document.createElement('div');
+    el.className = 'dr-option' + (drAnswers[idx] === oi ? ' selected' : '');
+    el.innerHTML = `<div class="dr-option-bullet"></div><div>${opt.text}</div>`;
+    el.addEventListener('click', () => drSelect(idx, oi));
+    wrap.appendChild(el);
+  });
+
+  drId('dr-btn-back').style.visibility = idx === 0 ? 'hidden' : 'visible';
+  drUpdateNext();
+  drShow('dr-screen-question');
+}
+
+function drSelect(qIdx, oIdx) {
+  drAnswers[qIdx] = oIdx;
+  drGoToQ(qIdx);
+}
+
+function drUpdateNext() {
+  const btn = drId('dr-btn-next');
+  if (drAnswers[drCurrent] !== null) {
+    btn.disabled = false;
+    btn.textContent = drCurrent === DR_QUESTIONS.length - 1 ? 'Ver mi diagnóstico →' : 'Continuar →';
+  } else {
+    btn.disabled = true;
+    btn.textContent = 'Continuar →';
+  }
+}
+
+function drNext() {
+  if (drAnswers[drCurrent] === null) return;
+  if (drCurrent < DR_QUESTIONS.length - 1) {
+    drGoToQ(drCurrent + 1);
+  } else {
+    drId('dr-progress-fill').style.width = '100%';
+    drShow('dr-screen-gate');
+  }
+}
+
+function drBack() {
+  if (drCurrent > 0) drGoToQ(drCurrent - 1);
+}
+
+function drSubmitGate() {
+  const name = drId('dr-f-name').value.trim();
+  const email = drId('dr-f-email').value.trim();
+  const phone = drId('dr-f-phone').value.trim();
+  const company = drId('dr-f-company').value.trim();
+  const emailRx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!name || !emailRx.test(email)) {
+    drId('dr-form-error').style.display = 'block';
+    return;
+  }
+  drId('dr-form-error').style.display = 'none';
+
+  let total = 0, lowestArea = null, lowestScore = Infinity;
+  const respuestas = [];
+  drAnswers.forEach((aIdx, qIdx) => {
+    const q = DR_QUESTIONS[qIdx];
+    const opt = q.options[aIdx];
+    total += opt.score;
+    if (opt.score < lowestScore) { lowestScore = opt.score; lowestArea = q.area; }
+    respuestas.push(`${qIdx+1}. ${q.title} → "${opt.text}" (${opt.score}/20)`);
+  });
+  const band = DR_BANDS.find(b => total >= b.min && total <= b.max);
+  const fecha = new Date().toISOString();
+  const waMsg = encodeURIComponent(
+    `Hola, soy ${name}${company ? ' de ' + company : ''}. ` +
+    `Hice el diagnóstico ResetNess y me dio ${total}/100 (${band.band}). Me gustaría conversar sobre los próximos pasos.`
+  );
+
+  drId('dr-score').textContent = total;
+  const bandEl = drId('dr-band');
+  bandEl.textContent = band.band;
+  bandEl.className = 'dr-score-band ' + band.bandClass;
+  drId('dr-r-title').textContent = band.title;
+  drId('dr-r-text').textContent = band.text;
+  drId('dr-r-priority').textContent = DR_PRIORITY[lowestArea];
+  drId('dr-r-next').textContent = band.next;
+  drId('dr-cta-wa').href = `https://wa.me/5493512215877?text=${waMsg}`;
+
+  // Guardar localmente como respaldo
+  try {
+    const lead = { name, email, phone, company, score: total, band: band.band, date: fecha };
+    const leads = JSON.parse(localStorage.getItem('rn_leads') || '[]');
+    leads.push(lead);
+    localStorage.setItem('rn_leads', JSON.stringify(leads));
+  } catch (e) { /* ignore */ }
+
+  // Enviar al email de Darío + informe ampliado al cliente (Formsubmit autoresponse)
+  try {
+    const informeAmpliado = `Hola ${name},
+
+Gracias por hacer el diagnóstico ResetNess. Acá tenés tu informe ampliado:
+
+═══════════════════════════════════
+TU RESULTADO
+═══════════════════════════════════
+
+Puntaje: ${total}/100
+Banda: ${band.band}
+Área prioritaria: ${lowestArea}
+
+═══════════════════════════════════
+DIAGNÓSTICO
+═══════════════════════════════════
+
+${band.title}
+
+${band.text}
+
+═══════════════════════════════════
+RECOMENDACIÓN PRIORITARIA
+═══════════════════════════════════
+
+${DR_PRIORITY[lowestArea]}
+
+═══════════════════════════════════
+PRÓXIMO PASO
+═══════════════════════════════════
+
+${band.next}
+
+═══════════════════════════════════
+
+Si querés profundizar, podemos agendar una conversación de 45 minutos sin costo donde miramos juntos los puntos críticos de tu PyME.
+
+Respondé este mail o escribime al WhatsApp:
+https://wa.me/5493512215877
+
+— Darío Cáseres
+Fundador de ResetNess
+Consultoría operativa y estratégica para PyMEs de retail y consumo masivo
+https://resetness.com.ar`;
+
+    fetch('https://formsubmit.co/ajax/dariocaseres.dc@gmail.com', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        _subject: `[ResetNess] Nuevo diagnóstico: ${name} — ${total}/100 (${band.band})`,
+        _captcha: 'false',
+        _template: 'table',
+        _replyto: email,
+        _autoresponse: informeAmpliado,
+        email: email,
+        Nombre: name,
+        Email: email,
+        WhatsApp: phone || '(no proporcionado)',
+        Empresa: company || '(no proporcionada)',
+        Score: `${total}/100`,
+        Banda: band.band,
+        'Área prioritaria': lowestArea,
+        'Recomendación': DR_PRIORITY[lowestArea],
+        Respuestas: respuestas.join('\n'),
+        Fecha: fecha,
+      }),
+    }).catch(() => {});
+  } catch (e) { /* ignore */ }
+
+  drShow('dr-screen-result');
+}
+
+function drRestart() {
+  for (let i = 0; i < drAnswers.length; i++) drAnswers[i] = null;
+  drCurrent = 0;
+  drId('dr-f-name').value = '';
+  drId('dr-f-email').value = '';
+  drId('dr-f-company').value = '';
+  drId('dr-form-error').style.display = 'none';
+  document.querySelectorAll('#dr-app .dr-screen').forEach(el => el.style.display = 'none');
+  document.getElementById('diagnostico').classList.remove('dr-started');
+  document.getElementById('diagnostico').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+</script>
+
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/5493512215877?text=Hola%20Dar%C3%ADo%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20ResetNess" target="_blank" 
+   style="position:fixed;bottom:28px;right:28px;width:56px;height:56px;
+          background:#25D366;border-radius:50%;display:flex;align-items:center;
+          justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.4);
+          z-index:999;transition:transform .2s;text-decoration:none"
+   onmouseover="this.style.transform='scale(1.1)'"
+   onmouseout="this.style.transform='scale(1)'">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.
